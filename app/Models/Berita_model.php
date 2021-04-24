@@ -36,6 +36,21 @@ class Berita_model extends Model
         return $query->getResultArray();
     }
 
+    // kategori
+    public function kategori($id_kategori)
+    {
+        $builder = $this->db->table('berita');
+        $builder->select('berita.*, kategori.nama_kategori, kategori.slug_kategori, users.nama');
+        $builder->join('kategori','kategori.id_kategori = berita.id_kategori','LEFT');
+        $builder->join('users','users.id_user = berita.id_user','LEFT');
+        $builder->where( [  'status_berita'         => 'Publish',
+                            'jenis_berita'          => 'Berita',
+                            'berita.id_kategori'    => $id_kategori]);
+        $builder->orderBy('berita.id_berita','DESC');
+        $query = $builder->get();
+        return $query->getResultArray();
+    }
+
     // total
     public function total()
     {

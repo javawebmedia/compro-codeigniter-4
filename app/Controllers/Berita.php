@@ -105,6 +105,7 @@ class Berita extends BaseController
 		$m_kategori		= new Kategori_model();
 		$konfigurasi 	= $m_konfigurasi->listing();
 		$kategori 		= $m_kategori->read($slug_kategori);
+		$berita 		= $m_berita->kategori($kategori['id_kategori']);
 		// Update hits
 		$data = [ 	'id_kategori'	=> $kategori['id_kategori'],
 					'hits'			=> $kategori['hits']+1
@@ -115,6 +116,8 @@ class Berita extends BaseController
 		$data = [	'title'			=> $kategori['nama_kategori'],
 					'description'	=> $kategori['nama_kategori'],
 					'keywords'		=> $kategori['nama_kategori'],
+					'kategori'		=> $kategori,
+					'berita'		=> $berita,
 					'content'		=> 'berita/index'
 				];
 		echo view('layout/wrapper',$data);
