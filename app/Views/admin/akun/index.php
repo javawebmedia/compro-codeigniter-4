@@ -40,7 +40,7 @@
 			<div class="form-group row">
 				<label class="col-3">Upload Foto profil</label>
 				<div class="col-9">
-					<input type="file" name="gambar" class="form-control" required>
+					<input type="file" name="gambar" class="form-control">
 				</div>
 			</div>
 

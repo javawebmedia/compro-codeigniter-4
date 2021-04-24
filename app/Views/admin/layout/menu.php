@@ -4,6 +4,11 @@ $session = \Config\Services::session();
 $konfigurasi  = new Konfigurasi_model;
 $site         = $konfigurasi->listing();
 ?>
+<style type="text/css" media="screen">
+  .nav-item a:hover {
+    color: yellow !important;
+  }
+</style>
 <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->

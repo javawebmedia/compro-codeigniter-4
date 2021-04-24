@@ -18,7 +18,6 @@ class Akun extends BaseController
 			[
             'id_user' 	=> 'required',
             'gambar'	=> [
-                'uploaded[gambar]',
                 'mime_in[gambar,image/jpg,image/jpeg,image/gif,image/png]',
                 'max_size[gambar,4096]'
             ],
