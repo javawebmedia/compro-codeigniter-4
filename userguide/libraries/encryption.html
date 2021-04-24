@@ -1,0 +1,803 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Encryption Service &mdash; CodeIgniter 4.1.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/citheme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/js/citheme.js"></script>
+        <script type="text/javascript" src="../_static/js/carbon.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Working with Files" href="files.html" />
+    <link rel="prev" title="Email Class" href="email.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #DD4814" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/ci-logo-text.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Welcome to CodeIgniter4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/index.html">Welcome to CodeIgniter4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/requirements.html">Server Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/credits.html">Credits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">PSR Compliance</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Composer Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Manual Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Running Your App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Upgrading From a Previous Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">CodeIgniter Repositories</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Build Your First Application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Static pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">News section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Create news items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">CodeIgniter4 Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Application Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Models, Views, and Controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Autoloading Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Factories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Working With HTTP Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Security Guidelines</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">General Topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">CodeIgniter URLs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Helper Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Global Functions and Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Logging Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Web Page Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">AJAX Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Code Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Managing your Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Handling Multiple Environments</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">URI Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Controller Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">HTTP Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Request Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">HTTP Method Spoofing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">RESTful Resource Handling</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Building Responses</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">View Cells</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">View Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">View Layouts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">View Parser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">HTML Table Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">API Response Trait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Alternate PHP Syntax for View Files</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Working With Databases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Quick Start: Usage Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Database Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Connecting to a Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Running Queries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Generating Query Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Query Helper Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Query Builder Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Getting MetaData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Custom Function Calls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Database Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Database Utilities</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Modeling Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Using CodeIgniter's Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Using Entity Classes</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Managing Databases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Database Manipulation with Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Database Migrations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Database Seeding</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Library Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="caching.html">Caching Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="curlrequest.html">CURLRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="email.html">Email Class</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Encryption Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html">Working with Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="honeypot.html">Honeypot Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="images.html">Image Manipulation Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pagination.html">Pagination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sessions.html">Session Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="throttler.html">Throttler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html">Times and Dates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typography.html">Typography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uploaded_files.html">Working with Uploaded Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html">Working with URIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_agent.html">User Agent Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Helpers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/array_helper.html">Array Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/cookie_helper.html">Cookie Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/date_helper.html">Date Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/filesystem_helper.html">Filesystem Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/form_helper.html">Form Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/html_helper.html">HTML Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/inflector_helper.html">Inflector Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/number_helper.html">Number Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/security_helper.html">Security Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/test_helper.html">Test Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/text_helper.html">Text Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/url_helper.html">URL Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/xml_helper.html">XML Helper</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Testing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Debugging Your Application</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Command Line Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli.html">Running via the Command Line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Custom CLI Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">CLI Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">CLIRequest Class</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Extending CodeIgniter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Creating Core System Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Replacing Common Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Extending the Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contributing to CodeIgniter</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CodeIgniter</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Library Reference</a> &raquo;</li>
+        
+      <li>Encryption Service</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="encryption-service">
+<h1>Encryption Service<a class="headerlink" href="#encryption-service" title="Permalink to this headline">¶</a></h1>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">DO NOT use this or any other <em>encryption</em> library for
+password storage! Passwords must be <em>hashed</em> instead, and you
+should do that through PHP’s <a class="reference external" href="https://www.php.net/password">Password Hashing extension</a>.</p>
+</div>
+<p>The Encryption Service provides two-way symmetric (secret key) data encryption.
+The service will instantiate and/or initialize an
+encryption <strong>handler</strong> to suit your parameters as explained below.</p>
+<p>Encryption Service handlers must implement CodeIgniter’s simple <code class="docutils literal notranslate"><span class="pre">EncrypterInterface</span></code>.
+Using an appropriate PHP cryptographic extension or third-party library may require
+additional software to be installed on your server and/or might need to be explicitly
+enabled in your instance of PHP.</p>
+<p>The following PHP extensions are currently supported:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.php.net/openssl">OpenSSL</a></li>
+<li><a class="reference external" href="https://www.php.net/manual/en/book.sodium">Sodium</a></li>
+</ul>
+<p>This is not a full cryptographic solution. If you need more capabilities, for example,
+public-key encryption, we suggest you consider direct use of OpenSSL or
+one of the other <a class="reference external" href="https://www.php.net/manual/en/refs.crypto.php">Cryptography Extensions</a>.
+A more comprehensive package like <a class="reference external" href="https://github.com/paragonie/halite">Halite</a>
+(an O-O package built on libsodium) is another possibility.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Support for the <code class="docutils literal notranslate"><span class="pre">MCrypt</span></code> extension has been dropped, as that has
+been deprecated as of PHP 7.2.</p>
+</div>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#using-the-encryption-library" id="id3">Using the Encryption Library</a><ul>
+<li><a class="reference internal" href="#configuring-the-library" id="id4">Configuring the Library</a></li>
+<li><a class="reference internal" href="#default-behavior" id="id5">Default Behavior</a></li>
+<li><a class="reference internal" href="#setting-your-encryption-key" id="id6">Setting Your Encryption Key</a><ul>
+<li><a class="reference internal" href="#encoding-keys-or-results" id="id7">Encoding Keys or Results</a></li>
+<li><a class="reference internal" href="#using-prefixes-in-storing-keys" id="id8">Using Prefixes in Storing Keys</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#padding" id="id9">Padding</a></li>
+<li><a class="reference internal" href="#encryption-handler-notes" id="id10">Encryption Handler Notes</a><ul>
+<li><a class="reference internal" href="#openssl-notes" id="id11">OpenSSL Notes</a></li>
+<li><a class="reference internal" href="#sodium-notes" id="id12">Sodium Notes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#message-length" id="id13">Message Length</a></li>
+<li><a class="reference internal" href="#using-the-encryption-service-directly" id="id14">Using the Encryption Service Directly</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#class-reference" id="id15">Class Reference</a></li>
+</ul>
+</div>
+<div class="section" id="using-the-encryption-library">
+<span id="usage"></span><h2><a class="toc-backref" href="#id3">Using the Encryption Library</a><a class="headerlink" href="#using-the-encryption-library" title="Permalink to this headline">¶</a></h2>
+<p>Like all services in CodeIgniter, it can be loaded via <code class="docutils literal notranslate"><span class="pre">Config\Services</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nv">$encrypter</span> <span class="o">=</span> <span class="nx">\Config\Services</span><span class="o">::</span><span class="na">encrypter</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Assuming you have set your starting key (see <a class="reference internal" href="#configuration"><span class="std std-ref">Configuring the Library</span></a>),
+encrypting and decrypting data is simple - pass the appropriate string to <code class="docutils literal notranslate"><span class="pre">encrypt()</span></code>
+and/or <code class="docutils literal notranslate"><span class="pre">decrypt()</span></code> methods:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nv">$plainText</span> <span class="o">=</span> <span class="s1">&#39;This is a plain-text message!&#39;</span><span class="p">;</span>
+<span class="nv">$ciphertext</span> <span class="o">=</span> <span class="nv">$encrypter</span><span class="o">-&gt;</span><span class="na">encrypt</span><span class="p">(</span><span class="nv">$plainText</span><span class="p">);</span>
+
+<span class="c1">// Outputs: This is a plain-text message!</span>
+<span class="k">echo</span> <span class="nv">$encrypter</span><span class="o">-&gt;</span><span class="na">decrypt</span><span class="p">(</span><span class="nv">$ciphertext</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>And that’s it! The Encryption library will do everything necessary
+for the whole process to be cryptographically secure out-of-the-box.
+You don’t need to worry about it.</p>
+<div class="section" id="configuring-the-library">
+<span id="configuration"></span><h3><a class="toc-backref" href="#id4">Configuring the Library</a><a class="headerlink" href="#configuring-the-library" title="Permalink to this headline">¶</a></h3>
+<p>The example above uses the configuration settings found in <code class="docutils literal notranslate"><span class="pre">app/Config/Encryption.php</span></code>.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Option</th>
+<th class="head">Possible values (default in parentheses)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>key</td>
+<td>Encryption key starter</td>
+</tr>
+<tr class="row-odd"><td>driver</td>
+<td>Preferred handler, e.g., OpenSSL or Sodium (<code class="docutils literal notranslate"><span class="pre">OpenSSL</span></code>)</td>
+</tr>
+<tr class="row-even"><td>blockSize</td>
+<td>Padding length in bytes for SodiumHandler (<code class="docutils literal notranslate"><span class="pre">16</span></code>)</td>
+</tr>
+<tr class="row-odd"><td>digest</td>
+<td>Message digest algorithm (<code class="docutils literal notranslate"><span class="pre">SHA512</span></code>)</td>
+</tr>
+</tbody>
+</table>
+<p>You can replace the config file’s settings by passing a configuration
+object of your own to the <code class="docutils literal notranslate"><span class="pre">Services</span></code> call. The <code class="docutils literal notranslate"><span class="pre">$config</span></code> variable must be
+an instance of the <code class="docutils literal notranslate"><span class="pre">Config\Encryption</span></code> class.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nv">$config</span>         <span class="o">=</span> <span class="k">new</span> <span class="nx">\Config\Encryption</span><span class="p">();</span>
+<span class="nv">$config</span><span class="o">-&gt;</span><span class="na">key</span>    <span class="o">=</span> <span class="s1">&#39;aBigsecret_ofAtleast32Characters&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="o">-&gt;</span><span class="na">driver</span> <span class="o">=</span> <span class="s1">&#39;OpenSSL&#39;</span><span class="p">;</span>
+
+<span class="nv">$encrypter</span> <span class="o">=</span> <span class="nx">\Config\Services</span><span class="o">::</span><span class="na">encrypter</span><span class="p">(</span><span class="nv">$config</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="default-behavior">
+<h3><a class="toc-backref" href="#id5">Default Behavior</a><a class="headerlink" href="#default-behavior" title="Permalink to this headline">¶</a></h3>
+<p>By default, the Encryption Library uses the OpenSSL handler. That handler encrypts using
+the AES-256-CTR algorithm, your configured <em>key</em>, and SHA512 HMAC authentication.</p>
+</div>
+<div class="section" id="setting-your-encryption-key">
+<h3><a class="toc-backref" href="#id6">Setting Your Encryption Key</a><a class="headerlink" href="#setting-your-encryption-key" title="Permalink to this headline">¶</a></h3>
+<p>Your encryption key <strong>must</strong> be as long as the encryption algorithm in use allows.
+For AES-256, that’s 256 bits or 32 bytes (characters) long.</p>
+<p>The key should be as random as possible, and it <strong>must not</strong> be a regular text string,
+nor the output of a hashing function, etc. To create a proper key,
+you can use the Encryption library’s <code class="docutils literal notranslate"><span class="pre">createKey()</span></code> method.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// $key will be assigned a 32-byte (256-bit) random key</span>
+<span class="nv">$key</span> <span class="o">=</span> <span class="nx">Encryption</span><span class="o">::</span><span class="na">createKey</span><span class="p">();</span>
+
+<span class="c1">// for the SodiumHandler, you can use either:</span>
+<span class="nv">$key</span> <span class="o">=</span> <span class="nx">sodium_crypto_secretbox_keygen</span><span class="p">();</span>
+<span class="nv">$key</span> <span class="o">=</span> <span class="nx">Encryption</span><span class="o">::</span><span class="na">createKey</span><span class="p">(</span><span class="nx">SODIUM_CRYPTO_SECRETBOX_KEYBYTES</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The key can be stored in <code class="docutils literal notranslate"><span class="pre">app/Config/Encryption.php</span></code>, or you can design
+a storage mechanism of your own and pass the key dynamically when encrypting/decrypting.</p>
+<p>To save your key to your <code class="docutils literal notranslate"><span class="pre">app/Config/Encryption.php</span></code>, open the file
+and set:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="nv">$key</span> <span class="o">=</span> <span class="s1">&#39;YOUR KEY&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="section" id="encoding-keys-or-results">
+<h4><a class="toc-backref" href="#id7">Encoding Keys or Results</a><a class="headerlink" href="#encoding-keys-or-results" title="Permalink to this headline">¶</a></h4>
+<p>You’ll notice that the <code class="docutils literal notranslate"><span class="pre">createKey()</span></code> method outputs binary data, which
+is hard to deal with (i.e., a copy-paste may damage it), so you may use
+<code class="docutils literal notranslate"><span class="pre">bin2hex()</span></code>, or <code class="docutils literal notranslate"><span class="pre">base64_encode</span></code> to work with the key in
+a more friendly manner. For example:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// Get a hex-encoded representation of the key:</span>
+<span class="nv">$encoded</span> <span class="o">=</span> <span class="nb">bin2hex</span><span class="p">(</span><span class="nx">Encryption</span><span class="o">::</span><span class="na">createKey</span><span class="p">(</span><span class="mi">32</span><span class="p">));</span>
+
+<span class="c1">// Put the same value with hex2bin(),</span>
+<span class="c1">// so that it is still passed as binary to the library:</span>
+<span class="nv">$key</span> <span class="o">=</span> <span class="nb">hex2bin</span><span class="p">(</span><span class="s1">&#39;your-hex-encoded-key&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>You might find the same technique useful for the results
+of encryption:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// Encrypt some text &amp; make the results text</span>
+<span class="nv">$encoded</span> <span class="o">=</span> <span class="nb">base64_encode</span><span class="p">(</span><span class="nv">$encrypter</span><span class="o">-&gt;</span><span class="na">encrypt</span><span class="p">(</span><span class="nv">$plaintext</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-prefixes-in-storing-keys">
+<h4><a class="toc-backref" href="#id8">Using Prefixes in Storing Keys</a><a class="headerlink" href="#using-prefixes-in-storing-keys" title="Permalink to this headline">¶</a></h4>
+<p>You may take advantage of two special prefixes in storing your
+encryption keys: <code class="docutils literal notranslate"><span class="pre">hex2bin:</span></code> and <code class="docutils literal notranslate"><span class="pre">base64:</span></code>. When these prefixes
+immediately precede the value of your key, <code class="docutils literal notranslate"><span class="pre">Encryption</span></code> will
+intelligently parse the key and still pass a binary string to
+the library.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// In Encryption, you may use</span>
+<span class="k">public</span> <span class="nv">$key</span> <span class="o">=</span> <span class="s1">&#39;hex2bin:&lt;your-hex-encoded-key&gt;&#39;</span>
+
+<span class="c1">// or</span>
+<span class="k">public</span> <span class="nv">$key</span> <span class="o">=</span> <span class="s1">&#39;base64:&lt;your-base64-encoded-key&gt;&#39;</span>
+</pre></div>
+</div>
+<p>Similarly, you can use these prefixes in your <code class="docutils literal notranslate"><span class="pre">.env</span></code> file, too!</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// For hex2bin</span>
+<span class="nx">encryption</span><span class="o">.</span><span class="nb">key</span> <span class="o">=</span> <span class="nb">hex2bin</span><span class="o">:&lt;</span><span class="nx">your</span><span class="o">-</span><span class="nx">hex</span><span class="o">-</span><span class="nx">encoded</span><span class="o">-</span><span class="nb">key</span><span class="o">&gt;</span>
+
+<span class="c1">// or</span>
+<span class="nx">encryption</span><span class="o">.</span><span class="nb">key</span> <span class="o">=</span> <span class="nx">base64</span><span class="o">:&lt;</span><span class="nx">your</span><span class="o">-</span><span class="nx">base64</span><span class="o">-</span><span class="nx">encoded</span><span class="o">-</span><span class="nb">key</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="padding">
+<h3><a class="toc-backref" href="#id9">Padding</a><a class="headerlink" href="#padding" title="Permalink to this headline">¶</a></h3>
+<p>Sometimes, the length of a message may provide a lot of information about its nature. If
+a message is one of “yes”, “no” and “maybe”, encrypting the message doesn’t help: knowing
+the length is enough to know what the message is.</p>
+<p>Padding is a technique to mitigate this, by making the length a multiple of a given block size.</p>
+<p>Padding is implemented in <code class="docutils literal notranslate"><span class="pre">SodiumHandler</span></code> using libsodium’s native <code class="docutils literal notranslate"><span class="pre">sodium_pad</span></code> and <code class="docutils literal notranslate"><span class="pre">sodium_unpad</span></code>
+functions. This requires the use of a padding length (in bytes) that is added to the plaintext
+message prior to encryption, and removed after decryption. Padding is configurable via the
+<code class="docutils literal notranslate"><span class="pre">$blockSize</span></code> property of <code class="docutils literal notranslate"><span class="pre">Config\Encryption</span></code>. This value should be greater than zero.</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">You are advised not to devise your own padding implementation. You must always use
+the more secure implementation of a library. Also, passwords should not be padded. Usage of
+padding in order to hide the length of a password is not recommended. A client willing to send
+a password to a server should hash it instead (even with a single iteration of the hash function).
+This ensures that the length of the transmitted data is constant, and that the server doesn’t
+effortlessly get a copy of the password.</p>
+</div>
+</div>
+<div class="section" id="encryption-handler-notes">
+<h3><a class="toc-backref" href="#id10">Encryption Handler Notes</a><a class="headerlink" href="#encryption-handler-notes" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="openssl-notes">
+<h4><a class="toc-backref" href="#id11">OpenSSL Notes</a><a class="headerlink" href="#openssl-notes" title="Permalink to this headline">¶</a></h4>
+<p>The <a class="reference external" href="https://www.php.net/openssl">OpenSSL</a> extension has been a standard part of PHP for a long time.</p>
+<p>CodeIgniter’s OpenSSL handler uses the AES-256-CTR cipher.</p>
+<p>The <em>key</em> your configuration provides is used to derive two other keys, one for
+encryption and one for authentication. This is achieved by way of a technique known
+as an <a class="reference external" href="https://en.wikipedia.org/wiki/HKDF">HMAC-based Key Derivation Function</a> (HKDF).</p>
+</div>
+<div class="section" id="sodium-notes">
+<h4><a class="toc-backref" href="#id12">Sodium Notes</a><a class="headerlink" href="#sodium-notes" title="Permalink to this headline">¶</a></h4>
+<p>The <a class="reference external" href="https://www.php.net/manual/en/book.sodium">Sodium</a> extension is bundled by default in PHP as
+of PHP 7.2.0.</p>
+<p>Sodium uses the algorithms XSalsa20 to encrypt, Poly1305 for MAC, and XS25519 for key exchange in
+sending secret messages in an end-to-end scenario. To encrypt and/or authenticate a string using
+a shared-key, such as symmetric encryption, Sodium uses the XSalsa20 algorithm to encrypt and
+HMAC-SHA512 for the authentication.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">CodeIgniter’s <code class="docutils literal notranslate"><span class="pre">SodiumHandler</span></code> uses <code class="docutils literal notranslate"><span class="pre">sodium_memzero</span></code> in every encryption or decryption
+session. After each session, the message (whether plaintext or ciphertext) and starter key are
+wiped out from the buffers. You may need to provide again the key before starting a new session.</p>
+</div>
+</div>
+</div>
+<div class="section" id="message-length">
+<h3><a class="toc-backref" href="#id13">Message Length</a><a class="headerlink" href="#message-length" title="Permalink to this headline">¶</a></h3>
+<p>An encrypted string is usually longer than the original, plain-text string (depending on the cipher).</p>
+<p>This is influenced by the cipher algorithm itself, the initialization vector (IV)
+prepended to the cipher-text, and the HMAC authentication message that is also prepended.
+Furthermore, the encrypted message is also Base64-encoded so that it is safe
+for storage and transmission regardless of the character-set in use.</p>
+<p>Keep this information in mind when selecting your data storage mechanism.
+Cookies, for example, can only hold 4K of information.</p>
+</div>
+<div class="section" id="using-the-encryption-service-directly">
+<h3><a class="toc-backref" href="#id14">Using the Encryption Service Directly</a><a class="headerlink" href="#using-the-encryption-service-directly" title="Permalink to this headline">¶</a></h3>
+<p>Instead of (or in addition to) using <code class="docutils literal notranslate"><span class="pre">Services</span></code> as described in <a class="reference internal" href="#usage"><span class="std std-ref">Using the Encryption Library</span></a>,
+you can create an “Encrypter” directly, or change the settings of an existing instance.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// create an Encryption instance</span>
+<span class="nv">$encryption</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CodeIgniter\Encryption\Encryption</span><span class="p">();</span>
+
+<span class="c1">// reconfigure an instance with different settings</span>
+<span class="nv">$encrypter</span> <span class="o">=</span> <span class="nv">$encryption</span><span class="o">-&gt;</span><span class="na">initialize</span><span class="p">(</span><span class="nv">$config</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Remember, that <code class="docutils literal notranslate"><span class="pre">$config</span></code> must be an instance of <code class="docutils literal notranslate"><span class="pre">Config\Encryption</span></code> class.</p>
+</div>
+</div>
+<div class="section" id="class-reference">
+<h2><a class="toc-backref" href="#id15">Class Reference</a><a class="headerlink" href="#class-reference" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt>
+<code class="descname">CodeIgniter\Encryption\Encryption</code></dt>
+<dd><dl class="staticmethod">
+<dt id="createKey">
+<em class="property">static </em><code class="descname">createKey</code><span class="sig-paren">(</span><span class="optional">[</span><em>$length = 32</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#createKey" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>$length</strong> (<em>int</em>) – Output length</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A pseudo-random cryptographic key with the specified length, or <code class="docutils literal notranslate"><span class="pre">false</span></code> on failure</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">string</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Creates a cryptographic key by fetching random data from
+the operating system’s sources (<em>i.e.</em> <code class="docutils literal notranslate"><span class="pre">/dev/urandom</span></code>).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="initialize">
+<code class="descname">initialize</code><span class="sig-paren">(</span><span class="optional">[</span><em>Encryption $config = null</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#initialize" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>$config</strong> (<em>Config\Encryption</em>) – Configuration parameters</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><code class="docutils literal notranslate"><span class="pre">CodeIgniter\Encryption\EncrypterInterface</span></code> instance</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><code class="docutils literal notranslate"><span class="pre">CodeIgniter\Encryption\EncrypterInterface</span></code></p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Throws:</th><td class="field-body"><p class="first last"><code class="docutils literal notranslate"><span class="pre">CodeIgniter\Encryption\Exceptions\EncryptionException</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Initializes (configures) the library to use different settings.</p>
+<p>Example:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nv">$encrypter</span> <span class="o">=</span> <span class="nv">$encryption</span><span class="o">-&gt;</span><span class="na">initialize</span><span class="p">([</span><span class="s1">&#39;cipher&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;3des&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>Please refer to the <a class="reference internal" href="#configuration"><span class="std std-ref">Configuring the Library</span></a> section for detailed info.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="interface">
+<dt>
+<code class="descname">CodeIgniter\Encryption\EncrypterInterface</code></dt>
+<dd><dl class="method">
+<dt id="encrypt">
+<code class="descname">encrypt</code><span class="sig-paren">(</span><em>$data</em><span class="optional">[</span>, <em>$params = null</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#encrypt" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>$data</strong> (<em>string</em>) – Data to encrypt</li>
+<li><strong>$params</strong> (<em>array|string|null</em>) – Configuration parameters (key)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Encrypted data</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">string</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Throws:</th><td class="field-body"><p class="first last"><code class="docutils literal notranslate"><span class="pre">CodeIgniter\Encryption\Exceptions\EncryptionException</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Encrypts the input data and returns its ciphertext.</p>
+<p>If you pass parameters as the second argument, the <code class="docutils literal notranslate"><span class="pre">key</span></code> element
+will be used as the starting key for this operation if <code class="docutils literal notranslate"><span class="pre">$params</span></code>
+is an array; or the starting key may be passed as a string.</p>
+<p>If you are using the SodiumHandler and want to pass a different <code class="docutils literal notranslate"><span class="pre">blockSize</span></code>
+on runtime, pass the <code class="docutils literal notranslate"><span class="pre">blockSize</span></code> key in the <code class="docutils literal notranslate"><span class="pre">$params</span></code> array.</p>
+<p>Examples:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nv">$ciphertext</span> <span class="o">=</span> <span class="nv">$encrypter</span><span class="o">-&gt;</span><span class="na">encrypt</span><span class="p">(</span><span class="s1">&#39;My secret message&#39;</span><span class="p">);</span>
+<span class="nv">$ciphertext</span> <span class="o">=</span> <span class="nv">$encrypter</span><span class="o">-&gt;</span><span class="na">encrypt</span><span class="p">(</span><span class="s1">&#39;My secret message&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;key&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;New secret key&#39;</span><span class="p">]);</span>
+<span class="nv">$ciphertext</span> <span class="o">=</span> <span class="nv">$encrypter</span><span class="o">-&gt;</span><span class="na">encrypt</span><span class="p">(</span><span class="s1">&#39;My secret message&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;key&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;New secret key&#39;</span><span class="p">,</span> <span class="s1">&#39;blockSize&#39;</span> <span class="o">=&gt;</span> <span class="mi">32</span><span class="p">]);</span>
+<span class="nv">$ciphertext</span> <span class="o">=</span> <span class="nv">$encrypter</span><span class="o">-&gt;</span><span class="na">encrypt</span><span class="p">(</span><span class="s1">&#39;My secret message&#39;</span><span class="p">,</span> <span class="s1">&#39;New secret key&#39;</span><span class="p">);</span>
+<span class="nv">$ciphertext</span> <span class="o">=</span> <span class="nv">$encrypter</span><span class="o">-&gt;</span><span class="na">encrypt</span><span class="p">(</span><span class="s1">&#39;My secret message&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;blockSize&#39;</span> <span class="o">=&gt;</span> <span class="mi">32</span><span class="p">]);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="decrypt">
+<code class="descname">decrypt</code><span class="sig-paren">(</span><em>$data</em><span class="optional">[</span>, <em>$params = null</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#decrypt" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>$data</strong> (<em>string</em>) – Data to decrypt</li>
+<li><strong>$params</strong> (<em>array|string|null</em>) – Configuration parameters (key)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Decrypted data</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">string</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Throws:</th><td class="field-body"><p class="first last"><code class="docutils literal notranslate"><span class="pre">CodeIgniter\Encryption\Exceptions\EncryptionException</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Decrypts the input data and returns it in plain-text.</p>
+<p>If you pass parameters as the second argument, the <code class="docutils literal notranslate"><span class="pre">key</span></code> element
+will be used as the starting key for this operation if <code class="docutils literal notranslate"><span class="pre">$params</span></code>
+is an array; or the starting key may be passed as a string.</p>
+<p>If you are using the SodiumHandler and want to pass a different <code class="docutils literal notranslate"><span class="pre">blockSize</span></code>
+on runtime, pass the <code class="docutils literal notranslate"><span class="pre">blockSize</span></code> key in the <code class="docutils literal notranslate"><span class="pre">$params</span></code> array.</p>
+<p>Examples:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="k">echo</span> <span class="nv">$encrypter</span><span class="o">-&gt;</span><span class="na">decrypt</span><span class="p">(</span><span class="nv">$ciphertext</span><span class="p">);</span>
+<span class="k">echo</span> <span class="nv">$encrypter</span><span class="o">-&gt;</span><span class="na">decrypt</span><span class="p">(</span><span class="nv">$ciphertext</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;key&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;New secret key&#39;</span><span class="p">]);</span>
+<span class="k">echo</span> <span class="nv">$encrypter</span><span class="o">-&gt;</span><span class="na">decrypt</span><span class="p">(</span><span class="nv">$ciphertext</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;key&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;New secret key&#39;</span><span class="p">,</span> <span class="s1">&#39;blockSize&#39;</span> <span class="o">=&gt;</span> <span class="mi">32</span><span class="p">]);</span>
+<span class="k">echo</span> <span class="nv">$encrypter</span><span class="o">-&gt;</span><span class="na">decrypt</span><span class="p">(</span><span class="nv">$ciphertext</span><span class="p">,</span> <span class="s1">&#39;New secret key&#39;</span><span class="p">);</span>
+<span class="k">echo</span> <span class="nv">$encrypter</span><span class="o">-&gt;</span><span class="na">decrypt</span><span class="p">(</span><span class="nv">$ciphertext</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;blockSize&#39;</span> <span class="o">=&gt;</span> <span class="mi">32</span><span class="p">]);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="files.html" class="btn btn-neutral float-right" title="Working with Files" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="email.html" class="btn btn-neutral float-left" title="Email Class" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2019-2021 CodeIgniter Foundation.
+      <span class="lastupdated">
+        Last updated on Feb 01, 2021.
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

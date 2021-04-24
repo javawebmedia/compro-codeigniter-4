@@ -1,0 +1,1248 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Global Functions and Constants &mdash; CodeIgniter 4.1.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/citheme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/js/citheme.js"></script>
+        <script type="text/javascript" src="../_static/js/carbon.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Logging Information" href="logging.html" />
+    <link rel="prev" title="Helper Functions" href="helpers.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #DD4814" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/ci-logo-text.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Welcome to CodeIgniter4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/index.html">Welcome to CodeIgniter4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/requirements.html">Server Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/credits.html">Credits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">PSR Compliance</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Composer Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Manual Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Running Your App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Upgrading From a Previous Version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">CodeIgniter Repositories</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Build Your First Application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Static pages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">News section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Create news items</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">CodeIgniter4 Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Application Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Models, Views, and Controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Autoloading Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Services</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Factories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Working With HTTP Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Security Guidelines</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">General Topics</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="urls.html">CodeIgniter URLs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html">Helper Functions</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Global Functions and Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">Logging Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="caching.html">Web Page Caching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ajax.html">AJAX Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html">Code Modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="managing_apps.html">Managing your Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="environments.html">Handling Multiple Environments</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controllers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">URI Routing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Controller Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">HTTP Messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Request Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">HTTP Method Spoofing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">RESTful Resource Handling</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Building Responses</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">Views</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">View Cells</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">View Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">View Layouts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">View Parser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">HTML Table Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">API Response Trait</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Alternate PHP Syntax for View Files</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Working With Databases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Quick Start: Usage Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Database Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Connecting to a Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Running Queries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Generating Query Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Query Helper Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Query Builder Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Transactions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Getting MetaData</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Custom Function Calls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Database Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Database Utilities</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Modeling Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Using CodeIgniter's Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Using Entity Classes</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Managing Databases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Database Manipulation with Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Database Migrations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Database Seeding</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Library Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/caching.html">Caching Driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">CURLRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/email.html">Email Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Encryption Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Working with Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/honeypot.html">Honeypot Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Image Manipulation Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Pagination</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/security.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Session Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">Throttler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/time.html">Times and Dates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Typography</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Working with Uploaded Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Working with URIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/user_agent.html">User Agent Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Helpers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/array_helper.html">Array Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/cookie_helper.html">Cookie Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/date_helper.html">Date Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/filesystem_helper.html">Filesystem Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/form_helper.html">Form Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/html_helper.html">HTML Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/inflector_helper.html">Inflector Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/number_helper.html">Number Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/security_helper.html">Security Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/test_helper.html">Test Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/text_helper.html">Text Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/url_helper.html">URL Helper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers/xml_helper.html">XML Helper</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Testing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Benchmarking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Debugging Your Application</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Command Line Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli.html">Running via the Command Line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Custom CLI Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">CLI Generators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">CLIRequest Class</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Extending CodeIgniter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Creating Core System Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Replacing Common Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Extending the Controller</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Authentication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contributing to CodeIgniter</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">CodeIgniter</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">General Topics</a> &raquo;</li>
+        
+      <li>Global Functions and Constants</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="global-functions-and-constants">
+<h1>Global Functions and Constants<a class="headerlink" href="#global-functions-and-constants" title="Permalink to this headline">¶</a></h1>
+<p>CodeIgniter provides a few functions and variables that are globally defined, and are available to you at any point.
+These do not require loading any additional libraries or helpers.</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#global-functions" id="id1">Global Functions</a><ul>
+<li><a class="reference internal" href="#service-accessors" id="id2">Service Accessors</a></li>
+<li><a class="reference internal" href="#miscellaneous-functions" id="id3">Miscellaneous Functions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#global-constants" id="id4">Global Constants</a><ul>
+<li><a class="reference internal" href="#core-constants" id="id5">Core Constants</a></li>
+<li><a class="reference internal" href="#time-constants" id="id6">Time Constants</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="global-functions">
+<h2><a class="toc-backref" href="#id1">Global Functions</a><a class="headerlink" href="#global-functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="service-accessors">
+<h3><a class="toc-backref" href="#id2">Service Accessors</a><a class="headerlink" href="#service-accessors" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="cache">
+<code class="descname">cache</code><span class="sig-paren">(</span><span class="optional">[</span><em>$key</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#cache" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>$key</strong> (<em>string</em>) – The cache name of the item to retrieve from cache (Optional)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Either the cache object, or the item retrieved from the cache</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">mixed</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>If no $key is provided, will return the Cache engine instance. If a $key
+is provided, will return the value of $key as stored in the cache currently,
+or null if no value is found.</p>
+<p>Examples:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nv">$foo</span> <span class="o">=</span> <span class="nx">cache</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">);</span>
+<span class="nv">$cache</span> <span class="o">=</span> <span class="nx">cache</span><span class="p">();</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="env">
+<code class="descname">env</code><span class="sig-paren">(</span><em>$key</em><span class="optional">[</span>, <em>$default=null</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#env" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>$key</strong> (<em>string</em>) – The name of the environment variable to retrieve</li>
+<li><strong>$default</strong> (<em>mixed</em>) – The default value to return if no value is found.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The environment variable, the default value, or null.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">mixed</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Used to retrieve values that have previously been set to the environment,
+or return a default value if it is not found. Will format boolean values
+to actual booleans instead of string representations.</p>
+<p>Especially useful when used in conjunction with .env files for setting
+values that are specific to the environment itself, like database
+settings, API keys, etc.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="esc">
+<code class="descname">esc</code><span class="sig-paren">(</span><em>$data</em>, <em>$context='html'</em><span class="optional">[</span>, <em>$encoding</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#esc" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>$data</strong> (<em>string|array</em>) – The information to be escaped.</li>
+<li><strong>$context</strong> (<em>string</em>) – The escaping context. Default is ‘html’.</li>
+<li><strong>$encoding</strong> (<em>string</em>) – The character encoding of the string.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The escaped data.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">mixed</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Escapes data for inclusion in web pages, to help prevent XSS attacks.
+This uses the Laminas Escaper library to handle the actual filtering of the data.</p>
+<p>If $data is a string, then it simply escapes and returns it.
+If $data is an array, then it loops over it, escaping each ‘value’ of the key/value pairs.</p>
+<p>Valid context values: html, js, css, url, attr, raw, null</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="helper">
+<code class="descname">helper</code><span class="sig-paren">(</span><em>$filename</em><span class="sig-paren">)</span><a class="headerlink" href="#helper" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>$filename</strong> (<em>string|array</em>) – The name of the helper file to load, or an array of names.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Loads a helper file.</p>
+<p>For full details, see the <a class="reference internal" href="helpers.html"><span class="doc">Helper Functions</span></a> page.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="lang">
+<code class="descname">lang</code><span class="sig-paren">(</span><em>$line</em><span class="optional">[</span>, <em>$args</em><span class="optional">[</span>, <em>$locale</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#lang" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>$line</strong> (<em>string</em>) – The line of text to retrieve</li>
+<li><strong>$args</strong> (<em>array</em>) – An array of data to substitute for placeholders.</li>
+<li><strong>$locale</strong> (<em>string</em>) – Specify a different locale to be used instead of default one.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Retrieves a locale-specific file based on an alias string.</p>
+<p>For more information, see the <a class="reference internal" href="../outgoing/localization.html"><span class="doc">Localization</span></a> page.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="model">
+<code class="descname">model</code><span class="sig-paren">(</span><em>$name</em><span class="optional">[</span>, <em>$getShared = true</em><span class="optional">[</span>, <em>&amp;$conn = null</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#model" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>$name</strong> (<em>string</em>) – </li>
+<li><strong>$getShared</strong> (<em>boolean</em>) – </li>
+<li><strong>$conn</strong> (<em>ConnectionInterface|null</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">More simple way of getting model instances</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">mixed</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="old">
+<code class="descname">old</code><span class="sig-paren">(</span><em>$key</em><span class="optional">[</span>, <em>$default = null</em><span class="optional">[</span>, <em>$escape = 'html'</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#old" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>$key</strong> (<em>string</em>) – The name of the old form data to check for.</li>
+<li><strong>$default</strong> (<em>mixed</em>) – The default value to return if $key doesn’t exist.</li>
+<li><strong>$escape</strong> (<em>mixed</em>) – An <a class="reference external" href="#esc">escape</a> context or false to disable it.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The value of the defined key, or the default value.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">mixed</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Provides a simple way to access “old input data” from submitting a form.</p>
+<p>Example:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// in controller, checking form submittal</span>
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$model</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="nv">$user</span><span class="p">))</span>
+<span class="p">{</span>
+    <span class="c1">// &#39;withInput&#39; is what specifies &quot;old data&quot;</span>
+    <span class="c1">// should be saved.</span>
+    <span class="k">return</span> <span class="nx">redirect</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">back</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">withInput</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="c1">// In the view</span>
+<span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;email&quot;</span> <span class="nx">name</span><span class="o">=</span><span class="s2">&quot;email&quot;</span> <span class="nx">value</span><span class="o">=</span><span class="s2">&quot;&lt;?= old(&#39;email&#39;) ?&gt;&quot;</span><span class="o">&gt;</span>
+<span class="c1">// Or with arrays</span>
+<span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;email&quot;</span> <span class="nx">name</span><span class="o">=</span><span class="s2">&quot;user[email]&quot;</span> <span class="nx">value</span><span class="o">=</span><span class="s2">&quot;&lt;?= old(&#39;user.email&#39;) ?&gt;&quot;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you are using the <a class="reference internal" href="../helpers/form_helper.html"><span class="doc">form helper</span></a>, this feature is built-in. You only
+need to use this function when not using the form helper.</p>
+</div>
+<dl class="function">
+<dt id="session">
+<code class="descname">session</code><span class="sig-paren">(</span><span class="optional">[</span><em>$key</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#session" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>$key</strong> (<em>string</em>) – The name of the session item to check for.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">An instance of the Session object if no $key, the value found in the session for $key, or null.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">mixed</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Provides a convenient way to access the session class and to retrieve a
+stored value. For more information, see the <a class="reference internal" href="../libraries/sessions.html"><span class="doc">Sessions</span></a> page.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="timer">
+<code class="descname">timer</code><span class="sig-paren">(</span><span class="optional">[</span><em>$name</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#timer" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>$name</strong> (<em>string</em>) – The name of the benchmark point.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The Timer instance</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">CodeIgniterDebugTimer</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>A convenience method that provides quick access to the Timer class. You can pass in the name
+of a benchmark point as the only parameter. This will start timing from this point, or stop
+timing if a timer with this name is already running.</p>
+<p>Example:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// Get an instance</span>
+<span class="nv">$timer</span> <span class="o">=</span> <span class="nx">timer</span><span class="p">();</span>
+
+<span class="c1">// Set timer start and stop points</span>
+<span class="nx">timer</span><span class="p">(</span><span class="s1">&#39;controller_loading&#39;</span><span class="p">);</span>    <span class="c1">// Will start the timer</span>
+<span class="o">.</span> <span class="o">.</span> <span class="o">.</span>
+<span class="nx">timer</span><span class="p">(</span><span class="s1">&#39;controller_loading&#39;</span><span class="p">);</span>    <span class="c1">// Will stop the running timer</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="view">
+<code class="descname">view</code><span class="sig-paren">(</span><em>$name</em><span class="optional">[</span>, <em>$data</em><span class="optional">[</span>, <em>$options</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#view" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>$name</strong> (<em>string</em>) – The name of the file to load</li>
+<li><strong>$data</strong> (<em>array</em>) – An array of key/value pairs to make available within the view.</li>
+<li><strong>$options</strong> (<em>array</em>) – An array of options that will be passed to the rendering class.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The output from the view.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">string</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Grabs the current RendererInterface-compatible class
+and tells it to render the specified view. Simply provides
+a convenience method that can be used in Controllers,
+libraries, and routed closures.</p>
+<p>Currently, only one option is available for use within the <cite>$options</cite> array, <cite>saveData</cite> which specifies
+that data will persistent between multiple calls to <cite>view()</cite> within the same request. By default, the
+data for that view is forgotten after displaying that single view file.</p>
+<p>The $option array is provided primarily to facilitate third-party integrations with
+libraries like Twig.</p>
+<p>Example:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;user&#39;</span> <span class="o">=&gt;</span> <span class="nv">$user</span><span class="p">];</span>
+
+<span class="k">echo</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;user_profile&#39;</span><span class="p">,</span> <span class="nv">$data</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>For more details, see the <a class="reference internal" href="../outgoing/views.html"><span class="doc">Views</span></a> page.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="view_cell">
+<code class="descname">view_cell</code><span class="sig-paren">(</span><em>$library</em><span class="optional">[</span>, <em>$params = null</em><span class="optional">[</span>, <em>$ttl = 0</em><span class="optional">[</span>, <em>$cacheName = null</em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#view_cell" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>$library</strong> (<em>string</em>) – </li>
+<li><strong>$params</strong> (<em>null</em>) – </li>
+<li><strong>$ttl</strong> (<em>integer</em>) – </li>
+<li><strong>$cacheName</strong> (<em>string|null</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">View cells are used within views to insert HTML chunks that are managed by other classes.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">string</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>For more details, see the <a class="reference internal" href="../outgoing/view_cells.html"><span class="doc">View Cells</span></a> page.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="miscellaneous-functions">
+<h3><a class="toc-backref" href="#id3">Miscellaneous Functions</a><a class="headerlink" href="#miscellaneous-functions" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="app_timezone">
+<code class="descname">app_timezone</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app_timezone" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The timezone the application has been set to display dates in.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+<p>Returns the timezone the application has been set to display dates in.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="csrf_token">
+<code class="descname">csrf_token</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#csrf_token" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The name of the current CSRF token.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+<p>Returns the name of the current CSRF token.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="csrf_header">
+<code class="descname">csrf_header</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#csrf_header" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The name of the header for current CSRF token.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+<p>The name of the header for current CSRF token.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="csrf_hash">
+<code class="descname">csrf_hash</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#csrf_hash" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The current value of the CSRF hash.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+<p>Returns the current CSRF hash value.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="csrf_field">
+<code class="descname">csrf_field</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#csrf_field" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A string with the HTML for hidden input with all required CSRF information.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+<p>Returns a hidden input with the CSRF information already inserted:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">input</span> <span class="nx">type</span><span class="o">=</span><span class="s2">&quot;hidden&quot;</span> <span class="nx">name</span><span class="o">=</span><span class="s2">&quot;{csrf_token}&quot;</span> <span class="nx">value</span><span class="o">=</span><span class="s2">&quot;{csrf_hash}&quot;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="csrf_meta">
+<code class="descname">csrf_meta</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#csrf_meta" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A string with the HTML for meta tag with all required CSRF information.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+<p>Returns a meta tag with the CSRF information already inserted:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">meta</span> <span class="nx">name</span><span class="o">=</span><span class="s2">&quot;{csrf_header}&quot;</span> <span class="nx">content</span><span class="o">=</span><span class="s2">&quot;{csrf_hash}&quot;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="force_https">
+<code class="descname">force_https</code><span class="sig-paren">(</span><em>$duration = 31536000</em><span class="optional">[</span>, <em>$request = null</em><span class="optional">[</span>, <em>$response = null</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#force_https" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>$duration</strong> (<em>int</em>) – The number of seconds browsers should convert links to this resource to HTTPS.</li>
+<li><strong>$request</strong> (<em>RequestInterface</em>) – An instance of the current Request object.</li>
+<li><strong>$response</strong> (<em>ResponseInterface</em>) – An instance of the current Response object.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Checks to see if the page is currently being accessed via HTTPS. If it is, then
+nothing happens. If it is not, then the user is redirected back to the current URI
+but through HTTPS. Will set the HTTP Strict Transport Security header, which instructs
+modern browsers to automatically modify any HTTP requests to HTTPS requests for the $duration.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="function_usable">
+<code class="descname">function_usable</code><span class="sig-paren">(</span><em>$function_name</em><span class="sig-paren">)</span><a class="headerlink" href="#function_usable" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>$function_name</strong> (<em>string</em>) – Function to check for</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">TRUE if the function exists and is safe to call, FALSE otherwise.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">bool</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="is_cli">
+<code class="descname">is_cli</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#is_cli" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">TRUE if the script is being executed from the command line or FALSE otherwise.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="is_really_writable">
+<code class="descname">is_really_writable</code><span class="sig-paren">(</span><em>$file</em><span class="sig-paren">)</span><a class="headerlink" href="#is_really_writable" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>$file</strong> (<em>string</em>) – The filename being checked.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">TRUE if you can write to the file, FALSE otherwise.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">bool</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="log_message">
+<code class="descname">log_message</code><span class="sig-paren">(</span><em>$level</em>, <em>$message</em><span class="optional">[</span>, <em>$context</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#log_message" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>$level</strong> (<em>string</em>) – The level of severity</li>
+<li><strong>$message</strong> (<em>string</em>) – The message that is to be logged.</li>
+<li><strong>$context</strong> (<em>array</em>) – An associative array of tags and their values that should be replaced in $message</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">TRUE if was logged successfully or FALSE if there was a problem logging it</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">bool</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Logs a message using the Log Handlers defined in <strong>app/Config/Logger.php</strong>.</p>
+<p>Level can be one of the following values: <strong>emergency</strong>, <strong>alert</strong>, <strong>critical</strong>, <strong>error</strong>, <strong>warning</strong>,
+<strong>notice</strong>, <strong>info</strong>, or <strong>debug</strong>.</p>
+<p>Context can be used to substitute values in the message string. For full details, see the
+<a class="reference internal" href="logging.html"><span class="doc">Logging Information</span></a> page.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="redirect">
+<code class="descname">redirect</code><span class="sig-paren">(</span><em>string $route</em><span class="sig-paren">)</span><a class="headerlink" href="#redirect" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>$route</strong> (<em>string</em>) – The reverse-routed or named route to redirect the user to.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Returns a RedirectResponse instance allowing you to easily create redirects:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// Go back to the previous page</span>
+<span class="k">return</span> <span class="nx">redirect</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">back</span><span class="p">();</span>
+
+<span class="c1">// Go to specific UI</span>
+<span class="k">return</span> <span class="nx">redirect</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">to</span><span class="p">(</span><span class="s1">&#39;/admin&#39;</span><span class="p">);</span>
+
+<span class="c1">// Go to a named/reverse-routed URI</span>
+<span class="k">return</span> <span class="nx">redirect</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">route</span><span class="p">(</span><span class="s1">&#39;named_route&#39;</span><span class="p">);</span>
+
+<span class="c1">// Keep the old input values upon redirect so they can be used by the `old()` function</span>
+<span class="k">return</span> <span class="nx">redirect</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">back</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">withInput</span><span class="p">();</span>
+
+<span class="c1">// Set a flash message</span>
+<span class="k">return</span> <span class="nx">redirect</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">back</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">with</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;message&#39;</span><span class="p">);</span>
+
+<span class="c1">// Copies all cookies from global response instance</span>
+<span class="k">return</span> <span class="nx">redirect</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">back</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">withCookies</span><span class="p">();</span>
+
+<span class="c1">// Copies all headers from the global response instance</span>
+<span class="k">return</span> <span class="nx">redirect</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">back</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">withHeaders</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>When passing an argument into the function, it is treated as a named/reverse-routed route, not a relative/full URI,
+treating it the same as using redirect()-&gt;route():</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// Go to a named/reverse-routed URI</span>
+<span class="k">return</span> <span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;named_route&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="remove_invisible_characters">
+<code class="descname">remove_invisible_characters</code><span class="sig-paren">(</span><em>$str</em><span class="optional">[</span>, <em>$urlEncoded = TRUE</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#remove_invisible_characters" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>$str</strong> (<em>string</em>) – Input string</li>
+<li><strong>$urlEncoded</strong> (<em>bool</em>) – Whether to remove URL-encoded characters as well</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Sanitized string</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">string</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>This function prevents inserting NULL characters between ASCII
+characters, like Java\0script.</p>
+<p>Example:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">remove_invisible_characters</span><span class="p">(</span><span class="s1">&#39;Java\\0script&#39;</span><span class="p">);</span>
+<span class="c1">// Returns: &#39;Javascript&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="route_to">
+<code class="descname">route_to</code><span class="sig-paren">(</span><em>$method</em><span class="optional">[</span>, <em>...$params</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#route_to" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>$method</strong> (<em>string</em>) – The named route alias, or name of the controller/method to match.</li>
+<li><strong>$params</strong> (<em>mixed</em>) – One or more parameters to be passed to be matched in the route.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Generates a URI relative to the domain name (not <strong>baseUrl</strong>) for you based on either a named route alias,
+or a controller::method combination. Will take parameters into effect, if provided.</p>
+<p>For full details, see the <a class="reference internal" href="../incoming/routing.html"><span class="doc">URI Routing</span></a> page.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="service">
+<code class="descname">service</code><span class="sig-paren">(</span><em>$name</em><span class="optional">[</span>, <em>...$params</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#service" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>$name</strong> (<em>string</em>) – The name of the service to load</li>
+<li><strong>$params</strong> (<em>mixed</em>) – One or more parameters to pass to the service method.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">An instance of the service class specified.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">mixed</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Provides easy access to any of the <a class="reference internal" href="../concepts/services.html"><span class="doc">Services</span></a> defined in the system.
+This will always return a shared instance of the class, so no matter how many times this is called
+during a single request, only one class instance will be created.</p>
+<p>Example:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nv">$logger</span> <span class="o">=</span> <span class="nx">service</span><span class="p">(</span><span class="s1">&#39;logger&#39;</span><span class="p">);</span>
+<span class="nv">$renderer</span> <span class="o">=</span> <span class="nx">service</span><span class="p">(</span><span class="s1">&#39;renderer&#39;</span><span class="p">,</span> <span class="nx">APPPATH</span><span class="o">.</span><span class="s1">&#39;views/&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="single_service">
+<code class="descname">single_service</code><span class="sig-paren">(</span><em>$name</em><span class="optional">[</span>, <em>...$params</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#single_service" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>$name</strong> (<em>string</em>) – The name of the service to load</li>
+<li><strong>$params</strong> (<em>mixed</em>) – One or more parameters to pass to the service method.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">An instance of the service class specified.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">mixed</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Identical to the <strong>service()</strong> function described above, except that all calls to this
+function will return a new instance of the class, where <strong>service</strong> returns the same
+instance every time.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="slash_item">
+<code class="descname">slash_item</code><span class="sig-paren">(</span><em>$item</em><span class="sig-paren">)</span><a class="headerlink" href="#slash_item" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>$item</strong> (<em>string</em>) – Config item name</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The configuration item or NULL if the item doesn’t exist</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">string|null</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Fetch a config file item with slash appended (if not empty)</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="stringify_attributes">
+<code class="descname">stringify_attributes</code><span class="sig-paren">(</span><em>$attributes</em><span class="optional">[</span>, <em>$js</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#stringify_attributes" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>$attributes</strong> (<em>mixed</em>) – string, array of key value pairs, or object</li>
+<li><strong>$js</strong> (<em>boolean</em>) – TRUE if values do not need quotes (Javascript-style)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">String containing the attribute key/value pairs, comma-separated</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">string</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Helper function used to convert a string, array, or object of attributes to a string.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="global-constants">
+<h2><a class="toc-backref" href="#id4">Global Constants</a><a class="headerlink" href="#global-constants" title="Permalink to this headline">¶</a></h2>
+<p>The following constants are always available anywhere within your application.</p>
+<div class="section" id="core-constants">
+<h3><a class="toc-backref" href="#id5">Core Constants</a><a class="headerlink" href="#core-constants" title="Permalink to this headline">¶</a></h3>
+<dl class="const">
+<dt id="APPPATH">
+<em class="property">constant </em><code class="descname">APPPATH</code><a class="headerlink" href="#APPPATH" title="Permalink to this definition">¶</a></dt>
+<dd><p>The path to the <strong>app</strong> directory.</p>
+</dd></dl>
+
+<dl class="const">
+<dt id="ROOTPATH">
+<em class="property">constant </em><code class="descname">ROOTPATH</code><a class="headerlink" href="#ROOTPATH" title="Permalink to this definition">¶</a></dt>
+<dd><p>The path to the project root directory. Just above <code class="docutils literal notranslate"><span class="pre">APPPATH</span></code>.</p>
+</dd></dl>
+
+<dl class="const">
+<dt id="SYSTEMPATH">
+<em class="property">constant </em><code class="descname">SYSTEMPATH</code><a class="headerlink" href="#SYSTEMPATH" title="Permalink to this definition">¶</a></dt>
+<dd><p>The path to the <strong>system</strong> directory.</p>
+</dd></dl>
+
+<dl class="const">
+<dt id="FCPATH">
+<em class="property">constant </em><code class="descname">FCPATH</code><a class="headerlink" href="#FCPATH" title="Permalink to this definition">¶</a></dt>
+<dd><p>The path to the directory that holds the front controller.</p>
+</dd></dl>
+
+<dl class="const">
+<dt id="WRITEPATH">
+<em class="property">constant </em><code class="descname">WRITEPATH</code><a class="headerlink" href="#WRITEPATH" title="Permalink to this definition">¶</a></dt>
+<dd><p>The path to the <strong>writable</strong> directory.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="time-constants">
+<h3><a class="toc-backref" href="#id6">Time Constants</a><a class="headerlink" href="#time-constants" title="Permalink to this headline">¶</a></h3>
+<dl class="const">
+<dt id="SECOND">
+<em class="property">constant </em><code class="descname">SECOND</code><a class="headerlink" href="#SECOND" title="Permalink to this definition">¶</a></dt>
+<dd><p>Equals 1.</p>
+</dd></dl>
+
+<dl class="const">
+<dt id="MINUTE">
+<em class="property">constant </em><code class="descname">MINUTE</code><a class="headerlink" href="#MINUTE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Equals 60.</p>
+</dd></dl>
+
+<dl class="const">
+<dt id="HOUR">
+<em class="property">constant </em><code class="descname">HOUR</code><a class="headerlink" href="#HOUR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Equals 3600.</p>
+</dd></dl>
+
+<dl class="const">
+<dt id="DAY">
+<em class="property">constant </em><code class="descname">DAY</code><a class="headerlink" href="#DAY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Equals 86400.</p>
+</dd></dl>
+
+<dl class="const">
+<dt id="WEEK">
+<em class="property">constant </em><code class="descname">WEEK</code><a class="headerlink" href="#WEEK" title="Permalink to this definition">¶</a></dt>
+<dd><p>Equals 604800.</p>
+</dd></dl>
+
+<dl class="const">
+<dt id="MONTH">
+<em class="property">constant </em><code class="descname">MONTH</code><a class="headerlink" href="#MONTH" title="Permalink to this definition">¶</a></dt>
+<dd><p>Equals 2592000.</p>
+</dd></dl>
+
+<dl class="const">
+<dt id="YEAR">
+<em class="property">constant </em><code class="descname">YEAR</code><a class="headerlink" href="#YEAR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Equals 31536000.</p>
+</dd></dl>
+
+<dl class="const">
+<dt id="DECADE">
+<em class="property">constant </em><code class="descname">DECADE</code><a class="headerlink" href="#DECADE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Equals 315360000.</p>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="logging.html" class="btn btn-neutral float-right" title="Logging Information" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="helpers.html" class="btn btn-neutral float-left" title="Helper Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2019-2021 CodeIgniter Foundation.
+      <span class="lastupdated">
+        Last updated on Feb 01, 2021.
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
