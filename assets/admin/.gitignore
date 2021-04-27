@@ -20,8 +20,8 @@ node_modules/
 bower_components/
 
 # Plugins
-/build
-/dist
+/build/
+/dist/
 /plugins/**/*.html
 /plugins/**/*.less
 /plugins/**/*.md
