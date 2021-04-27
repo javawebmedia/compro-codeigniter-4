@@ -83,7 +83,7 @@ phpunit
 #-------------------------
 # Composer
 #-------------------------
-vendor/
+/vendor/
 
 #-------------------------
 # IDE / Development Files
@@ -103,7 +103,7 @@ _modules/*
 nbproject/
 build/
 nbbuild/
-dist/
+/dist/
 nbdist/
 nbactions.xml
 nb-configuration.xml
