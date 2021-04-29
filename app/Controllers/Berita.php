@@ -41,9 +41,10 @@ class Berita extends BaseController
 		$m_berita->edit($data);
 		// Update hits
 		
-		$data = [	'title'			=> 'Berita '.$konfigurasi['namaweb'],
-					'description'	=> 'Berita '.$konfigurasi['namaweb'],
-					'keywords'		=> 'Berita '.$konfigurasi['namaweb'],
+		$data = [	'title'			=> $berita['judul_berita'],
+					'description'	=> $berita['judul_berita'],
+					'keywords'		=> $berita['judul_berita'],
+					'berita'		=> $berita,
 					'content'		=> 'berita/read'
 				];
 		echo view('layout/wrapper',$data);
