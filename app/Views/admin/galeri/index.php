@@ -9,9 +9,8 @@
 		<tr>
 			<th width="5%">No</th>
 			<th width="8%">Gambar</th>
-			<th width="30%">Judul</th>
-			<th width="15%">Kategori</th>
-			<th width="15%">Jenis</th>
+			<th width="45%">Judul</th>
+			<th width="15%">Kategori &amp; Jenis</th>
 			<th width="15%">Author</th>
 			<th></th>
 		</tr>
@@ -27,11 +26,13 @@
 			</td>
 			<td><?php echo $galeri['judul_galeri'] ?>
 				<small>
-					<br><i class="fa fa-link"></i> <?php echo $galeri['website'] ?>
+					<br><i class="fa fa-link"></i> Link: <?php echo $galeri['website'] ?>
+					<br><i class="fa fa-tasks"></i> Teks Banner: <?php echo $galeri['status_text'] ?>
+					<br><i class="fa fa-image"></i> <?php echo base_url('assets/upload/image/'.$galeri['gambar']) ?>
 				</small>
 			</td>
-			<td><?php echo $galeri['nama_kategori_galeri'] ?></td>
-			<td><?php echo $galeri['jenis_galeri'] ?></td>
+			<td><small><i class="fa fa-tags"></i> <?php echo $galeri['nama_kategori_galeri'] ?>
+				<br><i class="fa fa-home"></i> <?php echo $galeri['jenis_galeri'] ?></small></td>
 			<td><?php echo $galeri['nama'] ?></td>
 			<td>
 				

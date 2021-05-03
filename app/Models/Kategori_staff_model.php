@@ -25,7 +25,7 @@ class Kategori_staff_model extends Model
     public function listing()
     {
         $builder = $this->db->table('kategori_staff');
-        $builder->orderBy('kategori_staff.id_kategori_staff','DESC');
+        $builder->orderBy('kategori_staff.urutan','ASC');
         $query = $builder->get();
         return $query->getResultArray();
     }

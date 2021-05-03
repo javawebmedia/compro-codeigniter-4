@@ -61,4 +61,11 @@ class User_model extends Model
         $query = $builder->get();
         return $query->getRowArray();
     }
+
+    // tambah  log
+    public function user_log($data)
+    {
+        $builder = $this->db->table('user_logs');
+        $builder->insert($data);
+    }
 }

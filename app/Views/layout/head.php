@@ -11,8 +11,8 @@ $site         = $konfigurasi->listing();
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title><?php echo $title ?></title>
-  <meta content="<?php echo $description ?>" name="description">
-  <meta content="<?php echo $keywords ?>" name="keywords">
+  <meta content="<?php echo strip_tags($description) ?>" name="description">
+  <meta content="<?php echo $keywords ?>, <?php echo keywords() ?>" name="keywords">
 
   <!-- Favicons -->
   <link href="<?php echo base_url('assets/upload/image/'.$site['icon']) ?>" rel="icon">
@@ -20,6 +20,8 @@ $site         = $konfigurasi->listing();
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="<?php echo base_url() ?>/assets/admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
 
   <!-- Vendor CSS Files -->
   <link href="<?php echo base_url() ?>/assets/template/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
@@ -40,8 +42,10 @@ $site         = $konfigurasi->listing();
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
-  <!-- DataTables -->
-  <link rel="stylesheet" href="<?php echo base_url() ?>/assets/admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  
+   <!-- jQuery -->
+<script src="<?php echo base_url() ?>/assets/admin/plugins/jquery/jquery.min.js"></script>
+<?php echo metatext(); ?>
   <style type="text/css" media="screen">
     .table {
       border: solid thin #EEE;
@@ -50,9 +54,10 @@ $site         = $konfigurasi->listing();
     .table td, .table th {
       border: solid thin #EEE;
     }
+    .breadcrumbs {
+      padding-top: 40px;
+    }
   </style>
-   <!-- jQuery -->
-<script src="<?php echo base_url() ?>/assets/admin/plugins/jquery/jquery.min.js"></script>
 </head>
 
 <body>

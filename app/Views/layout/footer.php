@@ -20,7 +20,7 @@ $menu_layanan  = $menu->layanan();
             <div class="footer-info">
               <h3><?php echo $site['namaweb'] ?></h3>
               <p>
-                <?php echo nl2br($site['alamat']) ?>
+                <?php echo nl2br(strip_tags($site['alamat'])) ?>
                 <br>
                 <strong>Phone:</strong> <?php echo $site['telepon'] ?><br>
                 <strong>Email:</strong> <?php echo $site['email'] ?><br>

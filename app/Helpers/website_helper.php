@@ -1,5 +1,6 @@
 <?php
 use App\Models\Konfigurasi_model;
+use App\Models\User_model;
 
 // namaweb
 function namaweb()
@@ -41,12 +42,36 @@ function icon()
 	return base_url('assets/upload/image/'.$konfigurasi['icon']);
 }
 
+// metatext
+function metatext()
+{
+	$m_konfigurasi = new Konfigurasi_model();
+	$konfigurasi 	= $m_konfigurasi->listing();
+	return $konfigurasi['metatext'];
+}
+
+// keywords
+function keywords()
+{
+	$m_konfigurasi = new Konfigurasi_model();
+	$konfigurasi 	= $m_konfigurasi->listing();
+	return $konfigurasi['keywords'];
+}
+
 // telepon
 function telepon()
 {
 	$m_konfigurasi = new Konfigurasi_model();
 	$konfigurasi 	= $m_konfigurasi->listing();
 	return $konfigurasi['telepon'];
+}
+
+// google_map
+function google_map()
+{
+	$m_konfigurasi = new Konfigurasi_model();
+	$konfigurasi 	= $m_konfigurasi->listing();
+	return $konfigurasi['google_map'];
 }
 
 // hp
@@ -61,11 +86,49 @@ function hp()
 function checklogin()
 {
 	helper('url');
+	$m_user = new User_model();
 	$session = \Config\Services::session();
 	if($session->get('username') == "" || $session->get('username') ==NULL)
 	{
 		echo '<script>';
 		echo 'window.location.href = "'.base_url('login').'?login=belum";';
+		echo '</script>';
+	}else{
+		//whether ip is from share internet
+		if (!empty($_SERVER['HTTP_CLIENT_IP']))   
+		{
+			$ip_address = $_SERVER['HTTP_CLIENT_IP'];
+		}
+		//whether ip is from proxy
+		elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))  
+		{
+			$ip_address = $_SERVER['HTTP_X_FORWARDED_FOR'];
+		}
+		//whether ip is from remote address
+		else
+		{
+			$ip_address = $_SERVER['REMOTE_ADDR'];
+		}
+
+		$data = [	'id_user'		=> $session->get('id_user'),
+		'ip_address'	=> $ip_address,
+		'username'		=> $session->get('username'),
+		'url'			=> base_url(uri_string())
+	];
+
+	$m_user->user_log($data);
+}
+}
+
+// checksiswa
+function checksiswa()
+{
+	helper('url');
+	$session = \Config\Services::session();
+	if($session->get('username_siswa') == "" || $session->get('username_siswa') ==NULL)
+	{
+		echo '<script>';
+		echo 'window.location.href = "'.base_url('signin').'?login=belum";';
 		echo '</script>';
 	}
 }

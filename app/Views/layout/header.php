@@ -12,10 +12,10 @@ $menu_layanan  = $menu->layanan();
   <div id="topbar" class="d-flex align-items-center fixed-top">
     <div class="container d-flex align-items-center justify-content-center justify-content-md-between">
       <div class="align-items-center d-none d-md-flex">
-        <i class="bi bi-clock"></i> <?php echo tagline(); ?>
+        <i class="fa fa-home"></i> <?php echo tagline(); ?>
       </div>
       <div class="d-flex align-items-center">
-        <i class="bi bi-phone"></i> Call us now <?php echo telepon() ?>
+        <i class="bi bi-phone"></i> <?php echo telepon() ?>
       </div>
     </div>
   </div>
@@ -31,12 +31,12 @@ $menu_layanan  = $menu->layanan();
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a class="nav-link scrollto " href="<?php echo base_url() ?>">Home</a></li>
-          <li class="dropdown"><a href="#"><span>Tentang Kami</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="#"><span>Profil</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <?php foreach($menu_profil as $menu_profil) { ?>
               <li><a href="<?php echo base_url('berita/profil/'.$menu_profil['slug_berita']) ?>"><?php echo $menu_profil['judul_berita'] ?></a></li>
               <?php } ?>
-              <li><a href="<?php echo base_url('staff') ?>">Staff &amp; Team Kami</a></li>
+              <li><a href="<?php echo base_url('staff') ?>">Our Team</a></li>
             </ul>
           </li>
           
@@ -54,19 +54,22 @@ $menu_layanan  = $menu->layanan();
               <?php } ?>
             </ul>
           </li>
+         
           <li class="dropdown"><a href="#"><span>Galeri &amp; Video</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="<?php echo base_url('galeri') ?>">Galeri Gambar</a></li>
               <li><a href="<?php echo base_url('video') ?>">Galeri Video</a></li>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="<?php echo base_url('client') ?>">Clients</a></li>
           <li><a class="nav-link scrollto" href="<?php echo base_url('download') ?>">Download</a></li>
+          <li><a class="nav-link scrollto" href="<?php echo base_url('kontak') ?>">Kontak</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
-      <a href="<?php echo base_url('kontak') ?>" class="appointment-btn scrollto"><span class="d-none d-md-inline">Contact Us</a>
+      <a href="<?php echo base_url('login') ?>" class="appointment-btn scrollto">
+        Login <span class="d-none d-md-inline">Admin</span>
+      </a>
 
     </div>
   </header><!-- End Header -->

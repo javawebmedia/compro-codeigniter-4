@@ -4,6 +4,7 @@ namespace App\Controllers\Admin;
 use CodeIgniter\Controller;
 use App\Models\Berita_model;
 use App\Models\Kategori_model;
+use App\Models\User_model;
 
 class Berita extends BaseController
 {
@@ -18,6 +19,74 @@ class Berita extends BaseController
 		$total 			= $m_berita->total();
 
 		$data = [	'title'			=> 'Berita, Profil dan Layanan ('.$total.')',
+					'berita'		=> $berita,
+					'content'		=> 'admin/berita/index'
+				];
+		echo view('admin/layout/wrapper',$data);
+	}
+
+	// kategori
+	public function kategori($id_kategori)
+	{
+		checklogin();
+		$m_berita 		= new Berita_model();
+		$m_kategori 	= new Kategori_model();
+		$kategori 		= $m_kategori->detail($id_kategori);
+		$berita 		= $m_berita->kategori_all($id_kategori);
+		$total 			= $m_berita->total_kategori($id_kategori);
+
+		$data = [	'title'			=> $kategori['nama_kategori'].' ('.$total.')',
+					'berita'		=> $berita,
+					'content'		=> 'admin/berita/index'
+				];
+		echo view('admin/layout/wrapper',$data);
+	}
+
+	// jenis_berita
+	public function jenis_berita($jenis_berita)
+	{
+		checklogin();
+		$m_berita 		= new Berita_model();
+		$m_kategori 	= new Kategori_model();
+		$berita 		= $m_berita->jenis_berita_all($jenis_berita);
+		$total 			= $m_berita->total_jenis_berita($jenis_berita);
+
+		$data = [	'title'			=> $jenis_berita.' ('.$total.')',
+					'berita'		=> $berita,
+					'content'		=> 'admin/berita/index'
+				];
+		echo view('admin/layout/wrapper',$data);
+	}
+
+	// status_berita
+	public function status_berita($status_berita)
+	{
+		checklogin();
+		$m_berita 		= new Berita_model();
+		$m_kategori 	= new Kategori_model();
+		$kategori 		= $m_kategori->detail($id_kategori);
+		$berita 		= $m_berita->status_berita_all($status_berita);
+		$total 			= $m_berita->total_status_berita($status_berita);
+
+		$data = [	'title'			=> $status_berita.' ('.$total.')',
+					'berita'		=> $berita,
+					'content'		=> 'admin/berita/index'
+				];
+		echo view('admin/layout/wrapper',$data);
+	}
+
+	// author
+	public function author($id_user)
+	{
+		checklogin();
+		$m_berita 		= new Berita_model();
+		$m_kategori 	= new Kategori_model();
+		$m_user 		= new User_model();
+		$user 			= $m_user->detail($id_user);
+		$berita 		= $m_berita->author_all($id_user);
+		$total 			= $m_berita->total_author($id_user);
+
+		$data = [	'title'			=> $user['nama'].' ('.$total.')',
 					'berita'		=> $berita,
 					'content'		=> 'admin/berita/index'
 				];
@@ -64,10 +133,11 @@ class Berita extends BaseController
 					'keywords'		=> $this->request->getVar('keywords'),
 					'icon'			=> $this->request->getVar('icon'),
 					'gambar' 		=> $namabaru,
-					'tanggal_post'	=> date('Y-m-d H:i:s')
+					'tanggal_post'	=> date('Y-m-d H:i:s'),
+					'tanggal_publish'	=> date('Y-m-d',strtotime($this->request->getVar('tanggal_publish'))).' '.date('H:i',strtotime($this->request->getVar('jam')))
 	        	);
 	        	$m_berita->tambah($data);
-	        	return redirect()->to(base_url('admin/berita'))->with('sukses', 'Data Berhasil di Simpan');
+	        	return redirect()->to(base_url('admin/berita/jenis_berita/'.$this->request->getVar('jenis_berita')))->with('sukses', 'Data Berhasil di Simpan');
 	        }else{
 	        	$data = array(
 	        		'id_user'		=> $this->session->get('id_user'),
@@ -80,10 +150,11 @@ class Berita extends BaseController
 					'jenis_berita'	=> $this->request->getVar('jenis_berita'),
 					'keywords'		=> $this->request->getVar('keywords'),
 					'icon'			=> $this->request->getVar('icon'),
-					'tanggal_post'	=> date('Y-m-d H:i:s')
+					'tanggal_post'	=> date('Y-m-d H:i:s'),
+					'tanggal_publish'	=> date('Y-m-d',strtotime($this->request->getVar('tanggal_publish'))).' '.date('H:i',strtotime($this->request->getVar('jam')))
 	        	);
 	        	$m_berita->tambah($data);
-	        	return redirect()->to(base_url('admin/berita'))->with('sukses', 'Data Berhasil di Simpan');
+	        	return redirect()->to(base_url('admin/berita/jenis_berita/'.$this->request->getVar('jenis_berita')))->with('sukses', 'Data Berhasil di Simpan');
 	        }
 	    }
 
@@ -136,9 +207,10 @@ class Berita extends BaseController
 					'keywords'		=> $this->request->getVar('keywords'),
 					'icon'			=> $this->request->getVar('icon'),
 					'gambar' 		=> $namabaru,
+					'tanggal_publish'	=> date('Y-m-d',strtotime($this->request->getVar('tanggal_publish'))).' '.date('H:i',strtotime($this->request->getVar('jam')))
 	        	);
 	        	$m_berita->edit($data);
-       		 	return redirect()->to(base_url('admin/berita'))->with('sukses', 'Data Berhasil di Simpan');
+       		 	return redirect()->to(base_url('admin/berita/jenis_berita/'.$this->request->getVar('jenis_berita')))->with('sukses', 'Data Berhasil di Simpan');
 	        }else{
 	        	$data = array(
 	        		'id_berita'		=> $id_berita,
@@ -151,10 +223,11 @@ class Berita extends BaseController
 					'status_berita'	=> $this->request->getVar('status_berita'),
 					'jenis_berita'	=> $this->request->getVar('jenis_berita'),
 					'keywords'		=> $this->request->getVar('keywords'),
-					'icon'			=> $this->request->getVar('icon')
+					'icon'			=> $this->request->getVar('icon'),
+					'tanggal_publish'	=> date('Y-m-d',strtotime($this->request->getVar('tanggal_publish'))).' '.date('H:i',strtotime($this->request->getVar('jam')))
 	        	);
 	        	$m_berita->edit($data);
-       		 	return redirect()->to(base_url('admin/berita'))->with('sukses', 'Data Berhasil di Simpan');
+       		 	return redirect()->to(base_url('admin/berita/jenis_berita/'.$this->request->getVar('jenis_berita')))->with('sukses', 'Data Berhasil di Simpan');
 	        }
 	    }
 

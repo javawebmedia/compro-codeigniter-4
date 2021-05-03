@@ -4,6 +4,36 @@ $session = \Config\Services::session();
 $konfigurasi  = new Konfigurasi_model;
 $site         = $konfigurasi->listing();
 ?>
+<?php 
+$sek  = date('Y');
+$awal = $sek-100;
+?>
+<script>
+  $( ".datepicker" ).datepicker({
+    inline: true,
+    changeYear: true,
+    changeMonth: true,
+    dateFormat: "dd-mm-yy",
+    yearRange: "<?php echo $awal ?>:<?php $tahundepan = date('Y')+2; echo $tahundepan; ?>"
+  });
+
+  $( ".tanggal" ).datepicker({
+    inline: true,
+    changeYear: true,
+    changeMonth: true,
+    dateFormat: "dd-mm-yy",
+    yearRange: "<?php echo $awal ?>:<?php $tahundepan = date('Y')+2; echo $tahundepan; ?>"
+  });
+
+  $( ".tanggalan" ).datepicker({
+    inline: true,
+    changeYear: true,
+    changeMonth: true,
+    dateFormat: "dd-mm-yy",
+    yearRange: "<?php echo $awal ?>:<?php $tahundepan = date('Y')+2; echo $tahundepan; ?>"
+  });
+
+</script>
 <!-- SWEETALERT -->
 <?php if($session->getFlashdata('sukses')) { ?>
 <script>
@@ -130,8 +160,7 @@ tinymce.init({
 </div>
 <!-- ./wrapper -->
 
-<!-- jQuery -->
-<script src="<?php echo base_url() ?>/assets/admin/plugins/jquery/jquery.min.js"></script>
+
 <!-- Bootstrap 4 -->
 <script src="<?php echo base_url() ?>/assets/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- DataTables  & Plugins -->
@@ -147,8 +176,26 @@ tinymce.init({
 <script src="<?php echo base_url() ?>/assets/admin/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="<?php echo base_url() ?>/assets/admin/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="<?php echo base_url() ?>/assets/admin/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-<!-- date-range-picker -->
-<script src="<?php echo base_url() ?>/assets/admin/plugins/daterangepicker/daterangepicker.js"></script>
+
+<script>
+$(document).ready(function(){
+    $('input.jam').timepicker({
+        timeFormat: 'HH:mm:ss',
+        // year, month, day and seconds are not important
+        minTime: new Date(0, 0, 0, 8, 0, 0),
+        maxTime: new Date(0, 0, 0, 15, 0, 0),
+        // time entries start being generated at 6AM but the plugin 
+        // shows only those within the [minTime, maxTime] interval
+        startHour: 6,
+        // the value of the first item in the dropdown, when the input
+        // field is empty. This overrides the startHour and startMinute 
+        // options
+        startTime: new Date(0, 0, 0, 8, 20, 0),
+        // items in the dropdown are separated by at interval minutes
+        interval: 10
+    });
+});
+</script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url() ?>/assets/admin/dist/js/adminlte.min.js"></script>
 <!-- Summernote -->
@@ -159,11 +206,12 @@ tinymce.init({
 <script>
   $(function () {
     $("#example1").DataTable({
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
       "responsive": true, 
-
-      "lengthChange": false, 
-      "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      "paging": true,
+      "lengthMenu": [[100, 250, 500, -1], [100, 250, 500, "All"]],
+      "lengthChange": true, 
+      "autoWidth": false
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     $('#example2').DataTable({
       "paging": true,

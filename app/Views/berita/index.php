@@ -17,7 +17,7 @@
     <div class="container">
       <div class="row mt-5">
         <?php foreach($berita as $berita) { ?>
-         <div class="col-md-6">
+         <div class="col-md-4">
            <div class="card" style="margin-bottom: 20px;">
             <img src="<?php echo base_url('assets/upload/image/'.$berita['gambar']) ?>">
             <div class="card-body">

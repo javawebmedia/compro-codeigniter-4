@@ -11,7 +11,7 @@ $site         = $konfigurasi->listing();
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title><?php echo $title ?></title>
-  <meta content="<?php echo $description ?>" name="description">
+  <meta content="<?php echo strip_tags($description) ?>" name="description">
   <meta content="<?php echo $keywords ?>" name="keywords">
   <!-- Favicons -->
   <link href="<?php echo base_url('assets/upload/image/'.$site['icon']) ?>" rel="icon">

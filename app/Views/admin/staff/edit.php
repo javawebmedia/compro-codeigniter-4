@@ -10,9 +10,12 @@ echo csrf_field();
 </div>
 
 <div class="form-group row">
-	<label class="col-3">Jabatan</label>
-	<div class="col-9">
+	<label class="col-3">Jabatan &amp; No Urut Tampil</label>
+	<div class="col-6">
 		<input type="text" name="jabatan" class="form-control" placeholder="Jabatan" value="<?php echo $staff['jabatan'] ?>">
+	</div>
+	<div class="col-3">
+		<input type="number" name="urutan" class="form-control" placeholder="No Urut tampil" value="<?php echo $staff['urutan'] ?>">
 	</div>
 </div>
 
@@ -46,13 +49,14 @@ echo csrf_field();
 </div>
 
 <div class="form-group row">
-	<label class="col-3">Email dan Telepon</label>
-	<div class="col-5">
-		<input type="text" name="email" class="form-control" placeholder="Email staff" value="<?php echo $staff['email'] ?>">
-	</div>
+	<label class="col-3">Upload Foto dan Website</label>
 	<div class="col-4">
 		<input type="text" name="telepon" class="form-control" placeholder="Telepon" value="<?php echo $staff['telepon'] ?>">
 	</div>
+	<div class="col-5">
+		<input type="text" name="email" class="form-control" placeholder="Email staff" value="<?php echo $staff['email'] ?>">
+	</div>
+	
 </div>
 
 <div class="form-group row">

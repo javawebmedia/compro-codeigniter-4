@@ -4,6 +4,7 @@ namespace App\Controllers;
 use CodeIgniter\Controller;
 use App\Models\Konfigurasi_model;
 use App\Models\Staff_model;
+use App\Models\Kategori_staff_model;
 
 class Staff extends BaseController
 {
@@ -12,13 +13,15 @@ class Staff extends BaseController
 	{
 		$m_konfigurasi 	= new Konfigurasi_model();
 		$m_staff		= new Staff_model();
+		$m_kategori		= new Kategori_staff_model();
 		$konfigurasi 	= $m_konfigurasi->listing();
-		$staff 		= $m_staff->home();
+		$kategori 		= $m_kategori->listing();
 
 		$data = [	'title'			=> 'Staff Kami',
 					'description'	=> 'Staff Kami '.$konfigurasi['namaweb'].', '.$konfigurasi['tentang'],
 					'keywords'		=> 'Staff Kami '.$konfigurasi['namaweb'].', '.$konfigurasi['keywords'],
-					'staff'		=> $staff,
+					'kategori'		=> $kategori,
+					'm_staff'		=> $m_staff,
 					'konfigurasi'	=> $konfigurasi,
 					'content'		=> 'staff/index'
 				];

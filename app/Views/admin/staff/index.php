@@ -18,12 +18,18 @@
 				<img src="<?php echo base_url('assets/upload/staff/thumbs/'.$staff['gambar']) ?>" class="img img-thumbnail">
 			<?php } ?>
 			</td>
-			<td><?php echo $staff['nama'] ?></td>
+			<td><?php echo $staff['nama'] ?>
+				<small>
+					<br><i class="fa fa-sitemap"></i> Jenis: <?php echo $staff['nama_kategori_staff'] ?>
+					<br><i class="fa fa-home"></i> Urut: <?php echo $staff['urutan'] ?>
+				</small>
+			</td>
 			<td><?php echo $staff['jabatan'] ?></td>
-			<td><i class="fa fa-phone"></i> <?php echo $staff['telepon'] ?>
+			<td><small><i class="fa fa-phone"></i> <?php echo $staff['telepon'] ?>
 				<br><i class="fa fa-envelope"></i> <?php echo $staff['email'] ?>
 				<br><i class="fa fa-globe"></i> <?php echo $staff['website'] ?>
 				<br><i class="fa fa-map"></i> <?php echo $staff['alamat'] ?>
+				</small>
 			</td>
 			<td>
 				<a href="<?php echo base_url('admin/staff/edit/'.$staff['id_staff']) ?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>

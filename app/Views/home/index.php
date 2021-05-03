@@ -13,14 +13,16 @@ $layanan      = $menu->layanan();
       <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
 
       <div class="carousel-inner" role="listbox">
-        <?php $noslide=1; foreach($slider as $slider) { ?>
+        <?php $noslide=1; foreach($slider as $slider) {  ?>
         <!-- Slide 1 -->
-        <div class="carousel-item <?php if($noslide==1) { echo 'active'; } ?>" style="background-image: url(<?php echo base_url('assets/upload/image/'.$slider['gambar']) ?>)">
-          <div class="container">
-            <h2><?php echo $slider['judul_galeri'] ?></h2>
-            <p><?php echo $slider['isi'] ?></p>
-            <a href="<?php echo $slider['website'] ?>" class="btn-get-started scrollto">Read More</a>
-          </div>
+        <div class="carousel-item<?php if($noslide==1) { echo ' active'; } ?>" style="background-image: url(<?php echo base_url('assets/upload/image/'.$slider['gambar']) ?>)">
+          <?php if($slider['status_text']=="Ya") {  ?>
+          <div class="container" style="max-width: 70%; text-align: left; padding-left: 2%; padding-right: 2%;">
+                <h2><?php echo $slider['judul_galeri'] ?></h2>
+                <p><?php echo $slider['isi'] ?></p>
+                <a href="<?php echo $slider['website'] ?>" class="btn-get-started scrollto">Read More</a>
+            </div>
+          <?php } ?>
         </div>
         <?php $noslide++;} ?>
 
@@ -54,7 +56,7 @@ $layanan      = $menu->layanan();
             </div>
           </div>
           <?php $pr++; } ?>
-
+</div>
       </div>
     </section><!-- End Featured Services Section -->
 
@@ -64,7 +66,7 @@ $layanan      = $menu->layanan();
 
         <div class="text-center">
           <h3>Selamat datang di <?php echo $konfigurasi['namaweb'] ?></h3>
-          <p><?php echo $konfigurasi['tagline'] ?></a>
+          <p><?php echo $konfigurasi['tagline'] ?></p>
         </div>
 
       </div>
@@ -115,45 +117,18 @@ $layanan      = $menu->layanan();
       </div>
     </section><!-- End Services Section -->
 
-    <!-- ======= Testimonials Section ======= -->
-    <section id="testimonials" class="testimonials">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Testimonials</h2>
-          <p>Berikut ini adalah data-data client kami. <?php echo namaweb() ?> selalu berusaha menjaga kepuasan pelanggan. Tetap rajin belajar dan berkembang bersama.</p>
-        </div>
-
-        <div class="testimonials-slider swiper-container" data-aos="fade-up" data-aos-delay="100">
-          <div class="swiper-wrapper">
-
-            <?php foreach($client as $client) { ?>
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                 <?php echo $client['isi_testimoni'] ?>
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-                <img src="<?php echo base_url('assets/upload/client/thumbs/'.$client['gambar']) ?>" class="testimonial-img" alt="">
-                <h3><?php echo $client['nama'] ?></h3>
-                <h4><?php echo $client['pimpinan'] ?></h4>
-              </div>
-            </div><!-- End testimonial item -->
-          <?php } ?>
-            
-
-          </div>
-          <div class="swiper-pagination"></div>
-        </div>
-
-      </div>
-    </section><!-- End Testimonials Section -->
+    <?php include('berita.php') ?>
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
       <div>
-        <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
+        <style type="text/css" media="screen">
+          iframe {
+            min-height: 300px;
+            width: 100%;
+          }
+        </style>
+        <?php echo google_map() ?>
       </div>
     </section><!-- End Contact Section -->
 </main><!-- End #main -->

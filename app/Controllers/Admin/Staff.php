@@ -42,6 +42,7 @@ class Staff extends BaseController
 	        	// masuk database
 				$data = [	'id_user'		=> $this->session->get('id_user'),
 							'id_kategori_staff'	=> $this->request->getPost('id_kategori_staff'),
+							'urutan'	=> $this->request->getPost('urutan'),
 							'nama'			=> $this->request->getPost('nama'),
 							'jabatan'		=> $this->request->getPost('jabatan'),
 							'alamat'		=> $this->request->getPost('alamat'),
@@ -63,6 +64,7 @@ class Staff extends BaseController
 				// masuk database
 				$data = [	'id_user'		=> $this->session->get('id_user'),
 							'id_kategori_staff'	=> $this->request->getPost('id_kategori_staff'),
+							'urutan'	=> $this->request->getPost('urutan'),
 							'nama'			=> $this->request->getPost('nama'),
 							'jabatan'		=> $this->request->getPost('jabatan'),
 							'alamat'		=> $this->request->getPost('alamat'),
@@ -124,6 +126,7 @@ class Staff extends BaseController
 				$data = [	'id_staff'		=> $id_staff,
 							'id_user'		=> $this->session->get('id_user'),
 							'id_kategori_staff'	=> $this->request->getPost('id_kategori_staff'),
+							'urutan'	=> $this->request->getPost('urutan'),
 							'nama'			=> $this->request->getPost('nama'),
 							'jabatan'		=> $this->request->getPost('jabatan'),
 							'alamat'		=> $this->request->getPost('alamat'),
@@ -145,6 +148,7 @@ class Staff extends BaseController
 				$data = [	'id_staff'		=> $id_staff,
 							'id_user'		=> $this->session->get('id_user'),
 							'id_kategori_staff'	=> $this->request->getPost('id_kategori_staff'),
+							'urutan'	=> $this->request->getPost('urutan'),
 							'nama'			=> $this->request->getPost('nama'),
 							'jabatan'		=> $this->request->getPost('jabatan'),
 							'alamat'		=> $this->request->getPost('alamat'),

@@ -27,9 +27,12 @@ echo csrf_field();
 				</div>
 
 				<div class="form-group row">
-					<label class="col-3">Jabatan</label>
-					<div class="col-9">
+					<label class="col-3">Jabatan &amp; No Urut Tampil</label>
+					<div class="col-6">
 						<input type="text" name="jabatan" class="form-control" placeholder="Jabatan" value="<?php echo set_value('jabatan') ?>">
+					</div>
+					<div class="col-3">
+						<input type="number" name="urutan" class="form-control" placeholder="No Urut tampil" value="<?php echo set_value('urutan') ?>">
 					</div>
 				</div>
 
@@ -73,13 +76,14 @@ echo csrf_field();
 				</div>
 
 				<div class="form-group row">
-					<label class="col-3">Website dan logo</label>
-					<div class="col-4">
-						<input type="text" name="website" class="form-control" placeholder="Website" value="<?php echo set_value('website') ?>">
-					</div>
+					<label class="col-3">Upload Foto dan Website</label>
 					<div class="col-5">
 						<input type="file" name="gambar" class="form-control" placeholder="gambar" value="<?php echo set_value('gambar') ?>">
 					</div>
+					<div class="col-4">
+						<input type="text" name="website" class="form-control" placeholder="Website" value="<?php echo set_value('website') ?>">
+					</div>
+					
 				</div>
 
 				<div class="form-group row">
