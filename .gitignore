@@ -86,6 +86,8 @@ phpunit
 /dist/
 /vendor/
 
+composer.lock
+
 #-------------------------
 # IDE / Development Files
 #-------------------------
