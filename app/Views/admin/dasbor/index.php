@@ -1,12 +1,12 @@
-<?php 
-$session = \Config\Services::session();
+<?php $session = \Config\Services::session();
 use App\Models\Dasbor_model;
+
 $m_dasbor = new Dasbor_model();
 ?>
 <div class="alert alert-info">
-	<h4>Hai <em class="text-warning"><?php echo $session->get('nama') ?></em></h4>
+	<h4>Hai <em class="text-warning"><?= $session->get('nama') ?></em></h4>
 	<hr>
-	<p>Selamat datang di website <strong><?php echo namaweb() ?></strong>. Website ini adalah sample hasil belajar di Java Web Media <a href="https://javawebmedia.com">www.javawebmedia.com</a>. Semoga bermanfaat yah.</p>
+	<p>Selamat datang di website <strong><?= namaweb() ?></strong>. Website ini adalah sample hasil belajar di Java Web Media <a href="https://javawebmedia.com">www.javawebmedia.com</a>. Semoga bermanfaat yah.</p>
 </div>
 
  <!-- Info boxes -->
@@ -18,7 +18,7 @@ $m_dasbor = new Dasbor_model();
       <div class="info-box-content">
         <span class="info-box-text">Berita/Profil/Layanan</span>
         <span class="info-box-number">
-          <?php echo angka($m_dasbor->berita()) ?>
+          <?= angka($m_dasbor->berita()) ?>
           <small>Konten</small>
         </span>
       </div>
@@ -33,7 +33,7 @@ $m_dasbor = new Dasbor_model();
 
       <div class="info-box-content">
         <span class="info-box-text">Clients</span>
-        <span class="info-box-number"><?php echo angka($m_dasbor->client()) ?></span>
+        <span class="info-box-number"><?= angka($m_dasbor->client()) ?></span>
       </div>
       <!-- /.info-box-content -->
     </div>
@@ -50,7 +50,7 @@ $m_dasbor = new Dasbor_model();
 
       <div class="info-box-content">
         <span class="info-box-text">Staff</span>
-        <span class="info-box-number"><?php echo angka($m_dasbor->staff()) ?></span>
+        <span class="info-box-number"><?= angka($m_dasbor->staff()) ?></span>
       </div>
       <!-- /.info-box-content -->
     </div>
@@ -63,7 +63,7 @@ $m_dasbor = new Dasbor_model();
 
       <div class="info-box-content">
         <span class="info-box-text">Pengguna Website</span>
-        <span class="info-box-number"><?php echo angka($m_dasbor->user()) ?></span>
+        <span class="info-box-number"><?= angka($m_dasbor->user()) ?></span>
       </div>
       <!-- /.info-box-content -->
     </div>
@@ -81,7 +81,7 @@ $m_dasbor = new Dasbor_model();
 
       <div class="info-box-content">
         <span class="info-box-text">File Download</span>
-        <span class="info-box-number"><?php echo angka($m_dasbor->download()) ?></span>
+        <span class="info-box-number"><?= angka($m_dasbor->download()) ?></span>
       </div>
       <!-- /.info-box-content -->
     </div>
@@ -95,7 +95,7 @@ $m_dasbor = new Dasbor_model();
       <div class="info-box-content">
         <span class="info-box-text">Galeri &amp; Banner</span>
         <span class="info-box-number">
-          <?php echo angka($m_dasbor->galeri()) ?>
+          <?= angka($m_dasbor->galeri()) ?>
           <small>Konten</small>
         </span>
       </div>
@@ -110,7 +110,7 @@ $m_dasbor = new Dasbor_model();
 
       <div class="info-box-content">
         <span class="info-box-text">Video Youtube</span>
-        <span class="info-box-number"><?php echo angka($m_dasbor->video()) ?></span>
+        <span class="info-box-number"><?= angka($m_dasbor->video()) ?></span>
       </div>
       <!-- /.info-box-content -->
     </div>
@@ -127,12 +127,12 @@ $m_dasbor = new Dasbor_model();
 
       <div class="info-box-content">
         <span class="info-box-text">Kategori Berita</span>
-        <span class="info-box-number"><?php echo angka($m_dasbor->kategori()) ?></span>
+        <span class="info-box-number"><?= angka($m_dasbor->kategori()) ?></span>
       </div>
       <!-- /.info-box-content -->
     </div>
     <!-- /.info-box -->
   </div>
-  
+
 </div>
 <!-- /.row -->

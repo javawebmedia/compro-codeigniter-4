@@ -3,9 +3,8 @@
 		<i class="fa fa-plus"></i> Tambah Baru
 	</button>
 </p>
-<?php 
-echo form_open(base_url('admin/kategori_galeri')); 
-echo csrf_field(); 
+<?= form_open(base_url('admin/kategori_galeri'));
+echo csrf_field();
 ?>
 <div class="modal fade" id="modal-default">
 	<div class="modal-dialog modal-lg">
@@ -21,14 +20,14 @@ echo csrf_field();
 				<div class="form-group row">
 					<label class="col-3">Nama Kategori Galeri</label>
 					<div class="col-9">
-						<input type="text" name="nama_kategori_galeri" class="form-control" placeholder="Nama kategori_galeri" value="<?php echo set_value('nama_kategori_galeri') ?>" required>
+						<input type="text" name="nama_kategori_galeri" class="form-control" placeholder="Nama kategori_galeri" value="<?= set_value('nama_kategori_galeri') ?>" required>
 					</div>
 				</div>
 
 				<div class="form-group row">
 					<label class="col-3">Nomor urut Kategori Galeri</label>
 					<div class="col-9">
-						<input type="number" name="urutan" class="form-control" placeholder="Nomor urut kategori_galeri" value="<?php echo set_value('urutan') ?>" required>
+						<input type="number" name="urutan" class="form-control" placeholder="Nomor urut kategori_galeri" value="<?= set_value('urutan') ?>" required>
 					</div>
 				</div>
 
@@ -43,4 +42,4 @@ echo csrf_field();
 	<!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
-<?php echo form_close(); ?>
+<?= form_close(); ?>

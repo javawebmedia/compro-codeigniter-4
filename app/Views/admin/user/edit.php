@@ -1,26 +1,25 @@
-<?php 
-echo form_open(base_url('admin/user/edit/'.$user['id_user'])); 
-echo csrf_field(); 
+<?= form_open(base_url('admin/user/edit/' . $user['id_user']));
+echo csrf_field();
 ?>
 
 <div class="form-group row">
 	<label class="col-3">Nama Pengguna</label>
 	<div class="col-9">
-		<input type="text" name="nama" class="form-control" placeholder="Nama user" value="<?php echo $user['nama'] ?>" required>
+		<input type="text" name="nama" class="form-control" placeholder="Nama user" value="<?= $user['nama'] ?>" required>
 	</div>
 </div>
 
 <div class="form-group row">
 	<label class="col-3">Email</label>
 	<div class="col-9">
-		<input type="email" name="email" class="form-control" placeholder="Email" value="<?php echo $user['email'] ?>" required>
+		<input type="email" name="email" class="form-control" placeholder="Email" value="<?= $user['email'] ?>" required>
 	</div>
 </div>
 
 <div class="form-group row">
 	<label class="col-3">Username</label>
 	<div class="col-9">
-		<input type="text" name="username" class="form-control" placeholder="Username" value="<?php echo $user['username'] ?>" readonly>
+		<input type="text" name="username" class="form-control" placeholder="Username" value="<?= $user['username'] ?>" readonly>
 	</div>
 </div>
 
@@ -37,7 +36,9 @@ echo csrf_field();
 	<div class="col-9">
 		<select name="akses_level" class="form-control">
 			<option value="Admin">Admin</option>
-			<option value="User" <?php if($user['akses_level']=="User") { echo 'selected'; } ?>>User</option>
+			<option value="User" <?php if ($user['akses_level'] === 'User') {
+    echo 'selected';
+} ?>>User</option>
 		</select>
 	</div>
 </div>
@@ -49,4 +50,4 @@ echo csrf_field();
 	</div>
 </div>
 
-<?php echo form_close(); ?>
+<?= form_close(); ?>

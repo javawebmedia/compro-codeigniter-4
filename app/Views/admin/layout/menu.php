@@ -1,8 +1,9 @@
-<?php 
+<?php
 use App\Models\Konfigurasi_model;
-$session = \Config\Services::session();
-$konfigurasi  = new Konfigurasi_model;
-$site         = $konfigurasi->listing();
+
+$session     = \Config\Services::session();
+$konfigurasi = new Konfigurasi_model();
+$site        = $konfigurasi->listing();
 ?>
 <style type="text/css" media="screen">
   .nav-item a:hover {
@@ -13,8 +14,8 @@ $site         = $konfigurasi->listing();
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      <img src="<?php echo base_url('assets/upload/image/'.$site['icon']) ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light"><?php echo $site['namaweb'] ?></span>
+      <img src="<?= base_url('assets/upload/image/' . $site['icon']) ?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light"><?= $site['namaweb'] ?></span>
     </a>
 
     <!-- Sidebar -->
@@ -22,10 +23,10 @@ $site         = $konfigurasi->listing();
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="<?php echo base_url() ?>/assets/admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="<?= base_url() ?>/assets/admin/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="<?php echo base_url('admin/akun') ?>" class="d-block"><?php echo $session->get('nama') ?></a>
+          <a href="<?= base_url('admin/akun') ?>" class="d-block"><?= $session->get('nama') ?></a>
         </div>
       </div>
 
@@ -34,7 +35,7 @@ $site         = $konfigurasi->listing();
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Dahboard -->
           <li class="nav-item">
-            <a href="<?php echo base_url('admin/dasbor') ?>" class="nav-link">
+            <a href="<?= base_url('admin/dasbor') ?>" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>Dashboard</p>
             </a>
@@ -49,19 +50,19 @@ $site         = $konfigurasi->listing();
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?php echo base_url('admin/berita') ?>" class="nav-link">
+                <a href="<?= base_url('admin/berita') ?>" class="nav-link">
                   <i class="fas fa-table nav-icon"></i>
                   <p>Data Berita/Profil</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo base_url('admin/berita/tambah') ?>" class="nav-link">
+                <a href="<?= base_url('admin/berita/tambah') ?>" class="nav-link">
                   <i class="fas fa-plus nav-icon"></i>
                   <p>Tambah Berita/Profil</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo base_url('admin/kategori') ?>" class="nav-link">
+                <a href="<?= base_url('admin/kategori') ?>" class="nav-link">
                   <i class="fas fa-tags nav-icon"></i>
                   <p>Kategori Berita/Profil</p>
                 </a>
@@ -78,19 +79,19 @@ $site         = $konfigurasi->listing();
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?php echo base_url('admin/galeri') ?>" class="nav-link">
+                <a href="<?= base_url('admin/galeri') ?>" class="nav-link">
                   <i class="fas fa-table nav-icon"></i>
                   <p>Data Galeri/Banner</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo base_url('admin/galeri/tambah') ?>" class="nav-link">
+                <a href="<?= base_url('admin/galeri/tambah') ?>" class="nav-link">
                   <i class="fas fa-plus nav-icon"></i>
                   <p>Tambah Galeri/Banner</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo base_url('admin/kategori_galeri') ?>" class="nav-link">
+                <a href="<?= base_url('admin/kategori_galeri') ?>" class="nav-link">
                   <i class="fas fa-tags nav-icon"></i>
                   <p>Kategori Galeri/Banner</p>
                 </a>
@@ -107,19 +108,19 @@ $site         = $konfigurasi->listing();
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?php echo base_url('admin/download') ?>" class="nav-link">
+                <a href="<?= base_url('admin/download') ?>" class="nav-link">
                   <i class="fas fa-table nav-icon"></i>
                   <p>Data File Download</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo base_url('admin/download/tambah') ?>" class="nav-link">
+                <a href="<?= base_url('admin/download/tambah') ?>" class="nav-link">
                   <i class="fas fa-plus nav-icon"></i>
                   <p>Tambah File Download</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo base_url('admin/kategori_download') ?>" class="nav-link">
+                <a href="<?= base_url('admin/kategori_download') ?>" class="nav-link">
                   <i class="fas fa-tags nav-icon"></i>
                   <p>Kategori File Download</p>
                 </a>
@@ -136,13 +137,13 @@ $site         = $konfigurasi->listing();
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?php echo base_url('admin/video') ?>" class="nav-link">
+                <a href="<?= base_url('admin/video') ?>" class="nav-link">
                   <i class="fas fa-table nav-icon"></i>
                   <p>Data Video Youtube</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo base_url('admin/video/tambah') ?>" class="nav-link">
+                <a href="<?= base_url('admin/video/tambah') ?>" class="nav-link">
                   <i class="fas fa-plus nav-icon"></i>
                   <p>Tambah Video Youtube</p>
                 </a>
@@ -151,7 +152,7 @@ $site         = $konfigurasi->listing();
           </li>
           <!-- pengguna -->
           <li class="nav-item">
-            <a href="<?php echo base_url('admin/client') ?>" class="nav-link">
+            <a href="<?= base_url('admin/client') ?>" class="nav-link">
               <i class="nav-icon fas fa-tasks"></i>
               <p>Clients &amp; Portfolio</p>
             </a>
@@ -166,19 +167,19 @@ $site         = $konfigurasi->listing();
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?php echo base_url('admin/staff') ?>" class="nav-link">
+                <a href="<?= base_url('admin/staff') ?>" class="nav-link">
                   <i class="fas fa-table nav-icon"></i>
                   <p>Data Staff/Team</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo base_url('admin/staff/tambah') ?>" class="nav-link">
+                <a href="<?= base_url('admin/staff/tambah') ?>" class="nav-link">
                   <i class="fas fa-plus nav-icon"></i>
                   <p>Tambah Staff/Team</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo base_url('admin/kategori_staff') ?>" class="nav-link">
+                <a href="<?= base_url('admin/kategori_staff') ?>" class="nav-link">
                   <i class="fas fa-tags nav-icon"></i>
                   <p>Kategori Staff/Team</p>
                 </a>
@@ -187,7 +188,7 @@ $site         = $konfigurasi->listing();
           </li>
           <!-- pengguna -->
           <li class="nav-item">
-            <a href="<?php echo base_url('admin/user') ?>" class="nav-link">
+            <a href="<?= base_url('admin/user') ?>" class="nav-link">
               <i class="nav-icon fas fa-lock"></i>
               <p>Pengguna Website</p>
             </a>
@@ -202,25 +203,25 @@ $site         = $konfigurasi->listing();
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?php echo base_url('admin/konfigurasi') ?>" class="nav-link">
+                <a href="<?= base_url('admin/konfigurasi') ?>" class="nav-link">
                   <i class="fas fa-tasks nav-icon"></i>
                   <p>Konfigurasi Umum</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo base_url('admin/konfigurasi/logo') ?>" class="nav-link">
+                <a href="<?= base_url('admin/konfigurasi/logo') ?>" class="nav-link">
                   <i class="fas fa-image nav-icon"></i>
                   <p>Update Logo</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo base_url('admin/konfigurasi/icon') ?>" class="nav-link">
+                <a href="<?= base_url('admin/konfigurasi/icon') ?>" class="nav-link">
                   <i class="fas fa-leaf nav-icon"></i>
                   <p>Update Icon</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo base_url('admin/konfigurasi/seo') ?>" class="nav-link">
+                <a href="<?= base_url('admin/konfigurasi/seo') ?>" class="nav-link">
                   <i class="fab fa-google nav-icon"></i>
                   <p>Setting SEO &amp; Metatext</p>
                 </a>
@@ -229,14 +230,14 @@ $site         = $konfigurasi->listing();
           </li>
           <!-- panduan -->
           <li class="nav-item">
-            <a href="<?php echo base_url('admin/panduan') ?>" class="nav-link">
+            <a href="<?= base_url('admin/panduan') ?>" class="nav-link">
               <i class="nav-icon fas fa-file-pdf"></i>
               <p>Panduan &amp; Manual Book</p>
             </a>
           </li>
           <!-- logout -->
           <li class="nav-item">
-            <a href="<?php echo base_url('login/logout') ?>" class="nav-link">
+            <a href="<?= base_url('login/logout') ?>" class="nav-link">
               <i class="nav-icon fas fa-sign-out-alt"></i>
               <p>Logout</p>
             </a>
@@ -254,12 +255,12 @@ $site         = $konfigurasi->listing();
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1><?php echo $title ?></h1>
+            <h1><?= $title ?></h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="<?php echo base_url('admin/dasbor') ?>">Dashboard</a></li>
-              <li class="breadcrumb-item active"><?php echo $title ?></li>
+              <li class="breadcrumb-item"><a href="<?= base_url('admin/dasbor') ?>">Dashboard</a></li>
+              <li class="breadcrumb-item active"><?= $title ?></li>
             </ol>
           </div>
         </div>
@@ -273,18 +274,17 @@ $site         = $konfigurasi->listing();
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title"><?php echo $title ?></h3>
+                <h3 class="card-title"><?= $title ?></h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body" style="min-height: 500px;">
 
 
-<?php 
+<?php
 $validation = \Config\Services::validation();
     $errors = $validation->getErrors();
-    if(!empty($errors))
-    {
-        echo '<span class="text-danger">'.$validation->listErrors().'</span>';
+    if (! empty($errors)) {
+        echo '<span class="text-danger">' . $validation->listErrors() . '</span>';
     }
 ?>
 

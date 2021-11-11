@@ -1,4 +1,4 @@
-<?php include('tambah.php'); ?>
+<?php include 'tambah.php'; ?>
 <table class="table table-bordered" id="example1">
 	<thead>
 		<tr>
@@ -11,16 +11,18 @@
 		</tr>
 	</thead>
 	<tbody>
-		<?php $no=1; foreach($user as $user) { ?>
+		<?php $no = 1;
+
+foreach ($user as $user) { ?>
 		<tr>
-			<td><?php echo $no ?></td>
-			<td><?php echo $user['nama'] ?></td>
-			<td><?php echo $user['username'] ?></td>
-			<td><?php echo $user['email'] ?></td>
-			<td><?php echo $user['akses_level'] ?></td>
+			<td><?= $no ?></td>
+			<td><?= $user['nama'] ?></td>
+			<td><?= $user['username'] ?></td>
+			<td><?= $user['email'] ?></td>
+			<td><?= $user['akses_level'] ?></td>
 			<td>
-				<a href="<?php echo base_url('admin/user/edit/'.$user['id_user']) ?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
-				<a href="<?php echo base_url('admin/user/delete/'.$user['id_user']) ?>" class="btn btn-dark btn-sm" onclick="confirmation(event)"><i class="fa fa-trash"></i></a>
+				<a href="<?= base_url('admin/user/edit/' . $user['id_user']) ?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
+				<a href="<?= base_url('admin/user/delete/' . $user['id_user']) ?>" class="btn btn-dark btn-sm" onclick="confirmation(event)"><i class="fa fa-trash"></i></a>
 			</td>
 		</tr>
 		<?php $no++; } ?>

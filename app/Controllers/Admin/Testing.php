@@ -1,14 +1,15 @@
-<?php 
+<?php
+
 namespace App\Controllers\Admin;
 
 use CodeIgniter\Controller;
 
 class Testing extends Controller
 {
-	public function index()
-	{
-		$pager = \Config\Services::pager();
-		$model = new \App\Models\Pmodel();
+    public function index()
+    {
+        $pager = \Config\Services::pager();
+        $model = new \App\Models\Pmodel();
 
         $data = [
             'users' => $model->paginate(2),
@@ -16,5 +17,5 @@ class Testing extends Controller
         ];
         echo $pager->links();
         //echo view('admin/dasbor/testing', $data);
-	}
+    }
 }

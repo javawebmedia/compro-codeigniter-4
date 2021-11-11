@@ -3,9 +3,8 @@
 
 // Valid PHP Version?
 $minPHPVersion = '7.2';
-if (version_compare(PHP_VERSION, $minPHPVersion, '<'))
-{
-	die("Your PHP version must be {$minPHPVersion} or higher to run CodeIgniter. Current version: " . PHP_VERSION);
+if (version_compare(PHP_VERSION, $minPHPVersion, '<')) {
+    exit("Your PHP version must be {$minPHPVersion} or higher to run CodeIgniter. Current version: " . PHP_VERSION);
 }
 unset($minPHPVersion);
 
@@ -32,9 +31,8 @@ define('SPARKED', true);
  */
 
 // Refuse to run when called from php-cgi
-if (strpos(PHP_SAPI, 'cgi') === 0)
-{
-	die("The cli tool is not supported when running php-cgi. It needs php-cli to function!\n\n");
+if (strpos(PHP_SAPI, 'cgi') === 0) {
+    exit("The cli tool is not supported when running php-cgi. It needs php-cli to function!\n\n");
 }
 
 // Path to the front controller
@@ -64,7 +62,6 @@ $console->showHeader();
 
 // fire off the command in the main framework.
 $response = $console->run();
-if ($response->getStatusCode() >= 300)
-{
-	exit($response->getStatusCode());
+if ($response->getStatusCode() >= 300) {
+    exit($response->getStatusCode());
 }

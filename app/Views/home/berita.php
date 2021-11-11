@@ -8,18 +8,18 @@
           <h2>Berita Terbaru</h2>
           <hr>
         </div>
-        <?php foreach($berita2 as $berita2) { ?>
+        <?php foreach ($berita2 as $berita2) { ?>
          <div class="col-md-4">
            <div class="card" style="margin-bottom: 20px;">
-            <img src="<?php echo base_url('assets/upload/image/'.$berita2['gambar']) ?>">
+            <img src="<?= base_url('assets/upload/image/' . $berita2['gambar']) ?>">
             <div class="card-body">
-              <h3><?php echo $berita2['judul_berita'] ?></h3>
+              <h3><?= $berita2['judul_berita'] ?></h3>
               <p class="card-text">
-                <?php echo $berita2['ringkasan'] ?>
+                <?= $berita2['ringkasan'] ?>
               </p>
               <hr>
               <p>
-                <a href="<?php echo base_url('berita/read/'.$berita2['slug_berita']) ?>" class="btn btn-success">
+                <a href="<?= base_url('berita/read/' . $berita2['slug_berita']) ?>" class="btn btn-success">
                   <i class="fa fa-chevron-right"></i>  Baca...
                 </a>
               </p>

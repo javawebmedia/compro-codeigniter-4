@@ -3,9 +3,8 @@
 		<i class="fa fa-plus"></i> Tambah Baru
 	</button>
 </p>
-<form action="<?php echo base_url('admin/staff') ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
-<?php 
-echo csrf_field(); 
+<form action="<?= base_url('admin/staff') ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+<?= csrf_field();
 ?>
 
 <div class="modal fade" id="modal-default">
@@ -22,27 +21,27 @@ echo csrf_field();
 				<div class="form-group row">
 					<label class="col-3">Nama Staff</label>
 					<div class="col-9">
-						<input type="text" name="nama" class="form-control" placeholder="Nama staff" value="<?php echo set_value('nama') ?>" required>
+						<input type="text" name="nama" class="form-control" placeholder="Nama staff" value="<?= set_value('nama') ?>" required>
 					</div>
 				</div>
 
 				<div class="form-group row">
 					<label class="col-3">Jabatan &amp; No Urut Tampil</label>
 					<div class="col-6">
-						<input type="text" name="jabatan" class="form-control" placeholder="Jabatan" value="<?php echo set_value('jabatan') ?>">
+						<input type="text" name="jabatan" class="form-control" placeholder="Jabatan" value="<?= set_value('jabatan') ?>">
 					</div>
 					<div class="col-3">
-						<input type="number" name="urutan" class="form-control" placeholder="No Urut tampil" value="<?php echo set_value('urutan') ?>">
+						<input type="number" name="urutan" class="form-control" placeholder="No Urut tampil" value="<?= set_value('urutan') ?>">
 					</div>
 				</div>
 
 				<div class="form-group row">
 					<label class="col-3">Tempat, tanggal lahir</label>
 					<div class="col-3">
-						<input type="text" name="tempat_lahir" class="form-control" placeholder="Tempat lahir" value="<?php echo set_value('tempat_lahir') ?>">
+						<input type="text" name="tempat_lahir" class="form-control" placeholder="Tempat lahir" value="<?= set_value('tempat_lahir') ?>">
 					</div>
 					<div class="col-3">
-						<input type="text" name="tanggal_lahir" class="form-control" placeholder="dd-mm-yyyy" value="<?php echo set_value('tanggal_lahir') ?>">
+						<input type="text" name="tanggal_lahir" class="form-control" placeholder="dd-mm-yyyy" value="<?= set_value('tanggal_lahir') ?>">
 					</div>
 				</div>
 
@@ -50,8 +49,8 @@ echo csrf_field();
 					<label class="col-3">Jenis, Status Staff</label>
 					<div class="col-3">
 						<select name="id_kategori_staff" class="form-control">
-							<?php foreach($kategori_staff as $kategori_staff) { ?>
-							<option value="<?php echo $kategori_staff['id_kategori_staff'] ?>"><?php echo $kategori_staff['nama_kategori_staff'] ?></option>
+							<?php foreach ($kategori_staff as $kategori_staff) { ?>
+							<option value="<?= $kategori_staff['id_kategori_staff'] ?>"><?= $kategori_staff['nama_kategori_staff'] ?></option>
 							<?php } ?>
 						</select>
 						<small class="text-secondary">Jenis Staff</small>
@@ -68,35 +67,35 @@ echo csrf_field();
 				<div class="form-group row">
 					<label class="col-3">Email dan Telepon</label>
 					<div class="col-5">
-						<input type="text" name="email" class="form-control" placeholder="Email staff" value="<?php echo set_value('email') ?>">
+						<input type="text" name="email" class="form-control" placeholder="Email staff" value="<?= set_value('email') ?>">
 					</div>
 					<div class="col-4">
-						<input type="text" name="telepon" class="form-control" placeholder="Telepon" value="<?php echo set_value('telepon') ?>">
+						<input type="text" name="telepon" class="form-control" placeholder="Telepon" value="<?= set_value('telepon') ?>">
 					</div>
 				</div>
 
 				<div class="form-group row">
 					<label class="col-3">Upload Foto dan Website</label>
 					<div class="col-5">
-						<input type="file" name="gambar" class="form-control" placeholder="gambar" value="<?php echo set_value('gambar') ?>">
+						<input type="file" name="gambar" class="form-control" placeholder="gambar" value="<?= set_value('gambar') ?>">
 					</div>
 					<div class="col-4">
-						<input type="text" name="website" class="form-control" placeholder="Website" value="<?php echo set_value('website') ?>">
+						<input type="text" name="website" class="form-control" placeholder="Website" value="<?= set_value('website') ?>">
 					</div>
-					
+
 				</div>
 
 				<div class="form-group row">
 					<label class="col-3">Alamat</label>
 					<div class="col-9">
-						<textarea name="alamat" placeholder="Alamat" class="form-control"><?php echo set_value('alamat') ?></textarea>
+						<textarea name="alamat" placeholder="Alamat" class="form-control"><?= set_value('alamat') ?></textarea>
 					</div>
 				</div>
 
 				<div class="form-group row">
 					<label class="col-3">Keahlian</label>
 					<div class="col-9">
-						<textarea name="keahlian" placeholder="Keahlian" class="form-control"><?php echo set_value('keahlian') ?></textarea>
+						<textarea name="keahlian" placeholder="Keahlian" class="form-control"><?= set_value('keahlian') ?></textarea>
 					</div>
 				</div>
 
@@ -111,4 +110,4 @@ echo csrf_field();
 	<!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
-<?php echo form_close(); ?>
+<?= form_close(); ?>

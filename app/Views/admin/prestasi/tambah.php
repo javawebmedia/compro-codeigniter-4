@@ -1,20 +1,19 @@
 
-<form action="<?php echo base_url('admin/prestasi/tambah') ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
-	<?php 
-	echo csrf_field(); 
-	?>
+<form action="<?= base_url('admin/prestasi/tambah') ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+	<?= csrf_field();
+    ?>
 
 	<div class="form-group row">
 		<label class="col-3">Upload Foto</label>
 		<div class="col-9">
-			<input type="file" name="gambar" class="form-control" placeholder="gambar" value="<?php echo set_value('gambar') ?>">
+			<input type="file" name="gambar" class="form-control" placeholder="gambar" value="<?= set_value('gambar') ?>">
 		</div>
 	</div>
 
 	<div class="form-group row">
 		<label class="col-3">Nama Prestasi</label>
 		<div class="col-9">
-			<input type="text" name="nama_prestasi" class="form-control" placeholder="Nama prestasi" value="<?php echo set_value('nama_prestasi') ?>" required>
+			<input type="text" name="nama_prestasi" class="form-control" placeholder="Nama prestasi" value="<?= set_value('nama_prestasi') ?>" required>
 			<small class="text-secondary">Misal: Juara 3 Olimpiade Matematika</small>
 		</div>
 	</div>
@@ -36,7 +35,7 @@
 	<div class="form-group row">
 		<label class="col-3">Penyelenggara/Pelaksana</label>
 		<div class="col-9">
-			<input type="text" name="penyelenggara" class="form-control" placeholder="Penyelenggara/Pelaksana" value="<?php echo set_value('penyelenggara') ?>">
+			<input type="text" name="penyelenggara" class="form-control" placeholder="Penyelenggara/Pelaksana" value="<?= set_value('penyelenggara') ?>">
 			<small class="text-secondary">Misal: Dinas Pendidikan Kabupaten/Kota</small>
 		</div>
 	</div>
@@ -44,7 +43,7 @@
 	<div class="form-group row">
 		<label class="col-3">Nama kegiatan</label>
 		<div class="col-9">
-			<input type="text" name="nama_kegiatan" class="form-control" placeholder="Nama kegiatan" value="<?php echo set_value('nama_kegiatan') ?>">
+			<input type="text" name="nama_kegiatan" class="form-control" placeholder="Nama kegiatan" value="<?= set_value('nama_kegiatan') ?>">
 			<small class="text-secondary">Misal: Olimpiade Matematika Nasional</small>
 		</div>
 	</div>
@@ -52,7 +51,7 @@
 	<div class="form-group row">
 		<label class="col-3">Hadiah/Penghargaan</label>
 		<div class="col-9">
-			<input type="text" name="hadiah_penghargaan" class="form-control" placeholder="Hadiah/Penghargaan" value="<?php echo set_value('hadiah_penghargaan') ?>">
+			<input type="text" name="hadiah_penghargaan" class="form-control" placeholder="Hadiah/Penghargaan" value="<?= set_value('hadiah_penghargaan') ?>">
 			<small class="text-secondary">Misal: Piagam dan Uang Tunai Rp 2.000.000</small>
 		</div>
 	</div>
@@ -60,8 +59,8 @@
 	<div class="form-group row">
 		<label class="col-3">Tahun, Tingkat, Bidang dan Status Prestasi</label>
 		<div class="col-2">
-			<input type="text" name="tahun" class="form-control" placeholder="Tahun" value="<?php echo set_value('tahun') ?>">
-			<small class="text-secondary">Misal: <?php echo date('Y') ?></small>
+			<input type="text" name="tahun" class="form-control" placeholder="Tahun" value="<?= set_value('tahun') ?>">
+			<small class="text-secondary">Misal: <?= date('Y') ?></small>
 		</div>
 		<div class="col-3">
 			<select name="tingkat" class="form-control">
@@ -98,7 +97,7 @@
 	<div class="form-group row">
 		<label class="col-3">Keterangan</label>
 		<div class="col-9">
-			<textarea name="keterangan" placeholder="Keterangan" class="form-control konten"><?php echo set_value('keterangan') ?></textarea>
+			<textarea name="keterangan" placeholder="Keterangan" class="form-control konten"><?= set_value('keterangan') ?></textarea>
 		</div>
 	</div>
 
