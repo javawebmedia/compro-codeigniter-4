@@ -1,17 +1,16 @@
-<form action="<?php echo base_url('admin/konfigurasi/logo') ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
-<?php 
-echo csrf_field(); 
+<form action="<?= base_url('admin/konfigurasi/logo') ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+<?= csrf_field();
 ?>
 
-<input type="hidden" name="id_konfigurasi" value="<?php echo $konfigurasi['id_konfigurasi'] ?>">
+<input type="hidden" name="id_konfigurasi" value="<?= $konfigurasi['id_konfigurasi'] ?>">
 <div class="form-group row">
 	<label class="col-3">Upload Logo Baru</label>
 	<div class="col-6">
-		<input type="file" name="logo" value="<?php echo $konfigurasi['logo'] ?>" class="form-control">
+		<input type="file" name="logo" value="<?= $konfigurasi['logo'] ?>" class="form-control">
 		<small class="text-secondary">Format: JPG, PNG, GIF</small>
 	</div>
 	<div class="col-3">
-		<img src="<?php echo logo() ?>" class="img img-thumbnail">
+		<img src="<?= logo() ?>" class="img img-thumbnail">
 	</div>
 </div>
 
@@ -22,4 +21,4 @@ echo csrf_field();
 	</div>
 </div>
 
-<?php echo form_close(); ?>
+<?= form_close(); ?>

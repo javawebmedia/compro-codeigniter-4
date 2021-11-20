@@ -1,6 +1,6 @@
-<?php 
-use App\Models\Berita_model;
-$m_berita   = new Berita_model();
+<?php use App\Models\Berita_model;
+
+$m_berita = new Berita_model();
 $sidebar  = $m_berita->sidebar();
 ?>
 <main id="main">
@@ -8,8 +8,8 @@ $sidebar  = $m_berita->sidebar();
   <section class="breadcrumbs">
     <div class="container">
       <div class="d-flex justify-content-between align-items-center">
-        <h2><?php echo $title ?></h2>
-        
+        <h2><?= $title ?></h2>
+
       </div>
     </div>
   </section><!-- End Breadcrumbs Section -->
@@ -20,11 +20,11 @@ $sidebar  = $m_berita->sidebar();
       <div class="row mt-5">
          <div class="col-md-8">
            <div class="card" style="margin-bottom: 20px;">
-            <img src="<?php echo base_url('assets/upload/image/'.$berita['gambar']) ?>">
+            <img src="<?= base_url('assets/upload/image/' . $berita['gambar']) ?>">
             <div class="card-body">
-              <h3><?php echo $berita['judul_berita'] ?></h3>
-                <?php echo $berita['isi'] ?>
-             
+              <h3><?= $berita['judul_berita'] ?></h3>
+                <?= $berita['isi'] ?>
+
             </div>
           </div>
         </div>
@@ -34,22 +34,22 @@ $sidebar  = $m_berita->sidebar();
                 <h3>Berita Lainnya</h3>
               </div>
               <div class="card-body">
-                <?php foreach($sidebar as $sidebar) { ?>
+                <?php foreach ($sidebar as $sidebar) { ?>
                 <div class="row">
                   <div class="col-3">
-                    <?php if($sidebar['gambar']=="") { ?>
-                      <img src="<?php echo icon() ?>" class="img img-thumbnail">
-                    <?php }else{ ?>
-                      <img src="<?php echo base_url('assets/upload/image/thumbs/'.$sidebar['gambar']) ?>" class="img img-thumbnail">
+                    <?php if ($sidebar['gambar'] === '') { ?>
+                      <img src="<?= icon() ?>" class="img img-thumbnail">
+                    <?php } else { ?>
+                      <img src="<?= base_url('assets/upload/image/thumbs/' . $sidebar['gambar']) ?>" class="img img-thumbnail">
                     <?php } ?>
                   </div>
                   <div class="col-9">
                     <h4 style="font-size: 18px;">
-                      <a href="<?php echo base_url('berita/read/'.$sidebar['slug_berita']) ?>">
-                        <?php echo $sidebar['judul_berita'] ?>
+                      <a href="<?= base_url('berita/read/' . $sidebar['slug_berita']) ?>">
+                        <?= $sidebar['judul_berita'] ?>
                       </a>
                     </h4>
-                    <small class="text-gray-dark"><i class="fa fa-eye"></i> <?php echo $sidebar['hits'] ?> views</small>
+                    <small class="text-gray-dark"><i class="fa fa-eye"></i> <?= $sidebar['hits'] ?> views</small>
                   </div>
                   <div class="clearfix">
                     <br>

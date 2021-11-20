@@ -1,12 +1,11 @@
-<?php 
-use App\Models\Konfigurasi_model;
-$session = \Config\Services::session();
-$konfigurasi  = new Konfigurasi_model;
-$site         = $konfigurasi->listing();
+<?php use App\Models\Konfigurasi_model;
+
+$session     = \Config\Services::session();
+$konfigurasi = new Konfigurasi_model();
+$site        = $konfigurasi->listing();
 ?>
-<?php 
-$sek  = date('Y');
-$awal = $sek-100;
+<?php $sek = date('Y');
+$awal      = $sek - 100;
 ?>
 <script>
   $( ".datepicker" ).datepicker({
@@ -14,7 +13,7 @@ $awal = $sek-100;
     changeYear: true,
     changeMonth: true,
     dateFormat: "dd-mm-yy",
-    yearRange: "<?php echo $awal ?>:<?php $tahundepan = date('Y')+2; echo $tahundepan; ?>"
+    yearRange: "<?= $awal ?>:<?php $tahundepan = date('Y') + 2; echo $tahundepan; ?>"
   });
 
   $( ".tanggal" ).datepicker({
@@ -22,7 +21,7 @@ $awal = $sek-100;
     changeYear: true,
     changeMonth: true,
     dateFormat: "dd-mm-yy",
-    yearRange: "<?php echo $awal ?>:<?php $tahundepan = date('Y')+2; echo $tahundepan; ?>"
+    yearRange: "<?= $awal ?>:<?php $tahundepan = date('Y') + 2; echo $tahundepan; ?>"
   });
 
   $( ".tanggalan" ).datepicker({
@@ -30,26 +29,26 @@ $awal = $sek-100;
     changeYear: true,
     changeMonth: true,
     dateFormat: "dd-mm-yy",
-    yearRange: "<?php echo $awal ?>:<?php $tahundepan = date('Y')+2; echo $tahundepan; ?>"
+    yearRange: "<?= $awal ?>:<?php $tahundepan = date('Y') + 2; echo $tahundepan; ?>"
   });
 
 </script>
 <!-- SWEETALERT -->
-<?php if($session->getFlashdata('sukses')) { ?>
+<?php if ($session->getFlashdata('sukses')) { ?>
 <script>
-  swal("Berhasil", "<?php echo $session->getFlashdata('sukses'); ?>","success")
+  swal("Berhasil", "<?= $session->getFlashdata('sukses'); ?>","success")
 </script>
 <?php } ?>
 
-<?php if(isset($error)) { ?>
+<?php if (isset($error)) { ?>
 <script>
-  swal("Oops...", "<?php echo strip_tags($error); ?>","warning")
+  swal("Oops...", "<?= strip_tags($error); ?>","warning")
 </script>
 <?php } ?>
 
-<?php if($session->getFlashdata('warning')) { ?>
+<?php if ($session->getFlashdata('warning')) { ?>
 <script>
-  swal("Oops...", "<?php echo $session->getFlashdata('warning'); ?>","warning")
+  swal("Oops...", "<?= $session->getFlashdata('warning'); ?>","warning")
 </script>
 <?php } ?>
 
@@ -71,9 +70,9 @@ swal({
   if (willDelete) {
     // Proses ke URL
     window.location.href = urlToRedirect;
-  } 
+  }
 });
-} 
+}
 
 // Kirim ulang
 function kirim(ev) {
@@ -92,9 +91,9 @@ swal({
   if (willDelete) {
     // Proses ke URL
     window.location.href = urlToRedirect;
-  } 
+  }
 });
-} 
+}
 // Akses
 // Sweet alert
 function akses(ev) {
@@ -113,9 +112,9 @@ swal({
   if (willDelete) {
     // Proses ke URL
     window.location.href = urlToRedirect;
-  } 
+  }
 });
-} 
+}
 
 // Tinymce
 
@@ -162,20 +161,20 @@ tinymce.init({
 
 
 <!-- Bootstrap 4 -->
-<script src="<?php echo base_url() ?>/assets/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="<?= base_url() ?>/assets/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- DataTables  & Plugins -->
-<script src="<?php echo base_url() ?>/assets/admin/plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="<?php echo base_url() ?>/assets/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="<?php echo base_url() ?>/assets/admin/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="<?php echo base_url() ?>/assets/admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<script src="<?php echo base_url() ?>/assets/admin/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-<script src="<?php echo base_url() ?>/assets/admin/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-<script src="<?php echo base_url() ?>/assets/admin/plugins/jszip/jszip.min.js"></script>
-<script src="<?php echo base_url() ?>/assets/admin/plugins/pdfmake/pdfmake.min.js"></script>
-<script src="<?php echo base_url() ?>/assets/admin/plugins/pdfmake/vfs_fonts.js"></script>
-<script src="<?php echo base_url() ?>/assets/admin/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-<script src="<?php echo base_url() ?>/assets/admin/plugins/datatables-buttons/js/buttons.print.min.js"></script>
-<script src="<?php echo base_url() ?>/assets/admin/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<script src="<?= base_url() ?>/assets/admin/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="<?= base_url() ?>/assets/admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="<?= base_url() ?>/assets/admin/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="<?= base_url() ?>/assets/admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="<?= base_url() ?>/assets/admin/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="<?= base_url() ?>/assets/admin/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="<?= base_url() ?>/assets/admin/plugins/jszip/jszip.min.js"></script>
+<script src="<?= base_url() ?>/assets/admin/plugins/pdfmake/pdfmake.min.js"></script>
+<script src="<?= base_url() ?>/assets/admin/plugins/pdfmake/vfs_fonts.js"></script>
+<script src="<?= base_url() ?>/assets/admin/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="<?= base_url() ?>/assets/admin/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="<?= base_url() ?>/assets/admin/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
 <script>
 $(document).ready(function(){
@@ -184,11 +183,11 @@ $(document).ready(function(){
         // year, month, day and seconds are not important
         minTime: new Date(0, 0, 0, 8, 0, 0),
         maxTime: new Date(0, 0, 0, 15, 0, 0),
-        // time entries start being generated at 6AM but the plugin 
+        // time entries start being generated at 6AM but the plugin
         // shows only those within the [minTime, maxTime] interval
         startHour: 6,
         // the value of the first item in the dropdown, when the input
-        // field is empty. This overrides the startHour and startMinute 
+        // field is empty. This overrides the startHour and startMinute
         // options
         startTime: new Date(0, 0, 0, 8, 20, 0),
         // items in the dropdown are separated by at interval minutes
@@ -197,20 +196,20 @@ $(document).ready(function(){
 });
 </script>
 <!-- AdminLTE App -->
-<script src="<?php echo base_url() ?>/assets/admin/dist/js/adminlte.min.js"></script>
+<script src="<?= base_url() ?>/assets/admin/dist/js/adminlte.min.js"></script>
 <!-- Summernote -->
-<script src="<?php echo base_url() ?>/assets/admin/plugins/summernote/summernote-bs4.min.js"></script>
+<script src="<?= base_url() ?>/assets/admin/plugins/summernote/summernote-bs4.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="<?php echo base_url() ?>/assets/admin/dist/js/demo.js"></script>
+<script src="<?= base_url() ?>/assets/admin/dist/js/demo.js"></script>
 <!-- Page specific script -->
 <script>
   $(function () {
     $("#example1").DataTable({
       "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"],
-      "responsive": true, 
+      "responsive": true,
       "paging": true,
       "lengthMenu": [[100, 250, 500, -1], [100, 250, 500, "All"]],
-      "lengthChange": true, 
+      "lengthChange": true,
       "autoWidth": false
     }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
     $('#example2').DataTable({

@@ -1,5 +1,5 @@
 <p>
-	<a href="<?php echo base_url('admin/prestasi/tambah') ?>" class="btn btn-success">
+	<a href="<?= base_url('admin/prestasi/tambah') ?>" class="btn btn-success">
 		<i class="fa fa-plus"></i> Tambah Baru
 	</a>
 </p>
@@ -18,27 +18,31 @@
 		</tr>
 	</thead>
 	<tbody>
-		<?php $no=1; foreach($prestasi as $prestasi) { ?>
+		<?php $no = 1;
+
+foreach ($prestasi as $prestasi) { ?>
 		<tr>
-			<td><?php echo $no ?></td>
-			<td><?php if($prestasi['gambar']=="") { echo '-'; }else{ ?>
-				<img src="<?php echo base_url('assets/upload/prestasi/thumbs/'.$prestasi['gambar']) ?>" class="img img-thumbnail">
+			<td><?= $no ?></td>
+			<td><?php if ($prestasi['gambar'] === '') {
+    echo '-';
+} else { ?>
+				<img src="<?= base_url('assets/upload/prestasi/thumbs/' . $prestasi['gambar']) ?>" class="img img-thumbnail">
 			<?php } ?>
 			</td>
-			<td><?php echo $prestasi['nama_prestasi'] ?>
+			<td><?= $prestasi['nama_prestasi'] ?>
 				<br>
-				<small><i class="fa fa-users"></i> Oleh: <?php echo $prestasi['prestasi_oleh'] ?>
-				<br><i class="fa fa-eye"></i> Status: <?php echo $prestasi['status_prestasi'] ?>
+				<small><i class="fa fa-users"></i> Oleh: <?= $prestasi['prestasi_oleh'] ?>
+				<br><i class="fa fa-eye"></i> Status: <?= $prestasi['status_prestasi'] ?>
 				</small>
 			</td>
-			<td><?php echo $prestasi['penyelenggara'] ?></td>
-			<td><?php echo $prestasi['tahun'] ?></td>
-			<td><?php echo $prestasi['tingkat'] ?></td>
-			<td><?php echo $prestasi['bidang_prestasi'] ?></td>
-			<td><?php echo $prestasi['hadiah_penghargaan'] ?></td>
+			<td><?= $prestasi['penyelenggara'] ?></td>
+			<td><?= $prestasi['tahun'] ?></td>
+			<td><?= $prestasi['tingkat'] ?></td>
+			<td><?= $prestasi['bidang_prestasi'] ?></td>
+			<td><?= $prestasi['hadiah_penghargaan'] ?></td>
 			<td>
-				<a href="<?php echo base_url('admin/prestasi/edit/'.$prestasi['id_prestasi']) ?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
-				<a href="<?php echo base_url('admin/prestasi/delete/'.$prestasi['id_prestasi']) ?>" class="btn btn-dark btn-sm" onclick="confirmation(event)"><i class="fa fa-trash"></i></a>
+				<a href="<?= base_url('admin/prestasi/edit/' . $prestasi['id_prestasi']) ?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
+				<a href="<?= base_url('admin/prestasi/delete/' . $prestasi['id_prestasi']) ?>" class="btn btn-dark btn-sm" onclick="confirmation(event)"><i class="fa fa-trash"></i></a>
 			</td>
 		</tr>
 		<?php $no++; } ?>

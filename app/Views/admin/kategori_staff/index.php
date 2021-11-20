@@ -1,4 +1,4 @@
-<?php include('tambah.php'); ?>
+<?php include 'tambah.php'; ?>
 <table class="table table-bordered" id="example1">
 	<thead>
 		<tr>
@@ -10,15 +10,17 @@
 		</tr>
 	</thead>
 	<tbody>
-		<?php $no=1; foreach($kategori_staff as $kategori_staff) { ?>
+		<?php $no = 1;
+
+foreach ($kategori_staff as $kategori_staff) { ?>
 		<tr>
-			<td><?php echo $no ?></td>
-			<td><?php echo $kategori_staff['nama_kategori_staff'] ?></td>
-			<td><?php echo $kategori_staff['slug_kategori_staff'] ?></td>
-			<td><?php echo $kategori_staff['urutan'] ?></td>
+			<td><?= $no ?></td>
+			<td><?= $kategori_staff['nama_kategori_staff'] ?></td>
+			<td><?= $kategori_staff['slug_kategori_staff'] ?></td>
+			<td><?= $kategori_staff['urutan'] ?></td>
 			<td>
-				<a href="<?php echo base_url('admin/kategori_staff/edit/'.$kategori_staff['id_kategori_staff']) ?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
-				<a href="<?php echo base_url('admin/kategori_staff/delete/'.$kategori_staff['id_kategori_staff']) ?>" class="btn btn-dark btn-sm" onclick="confirmation(event)"><i class="fa fa-trash"></i></a>
+				<a href="<?= base_url('admin/kategori_staff/edit/' . $kategori_staff['id_kategori_staff']) ?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
+				<a href="<?= base_url('admin/kategori_staff/delete/' . $kategori_staff['id_kategori_staff']) ?>" class="btn btn-dark btn-sm" onclick="confirmation(event)"><i class="fa fa-trash"></i></a>
 			</td>
 		</tr>
 		<?php $no++; } ?>

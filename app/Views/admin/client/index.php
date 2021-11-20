@@ -1,4 +1,4 @@
-<?php include('tambah.php'); ?>
+<?php include 'tambah.php'; ?>
 <table class="table table-bordered" id="example1">
 	<thead>
 		<tr>
@@ -11,23 +11,27 @@
 		</tr>
 	</thead>
 	<tbody>
-		<?php $no=1; foreach($client as $client) { ?>
+		<?php $no = 1;
+
+foreach ($client as $client) { ?>
 		<tr>
-			<td><?php echo $no ?></td>
-			<td><?php if($client['gambar']=="") { echo '-'; }else{ ?>
-				<img src="<?php echo base_url('assets/upload/client/thumbs/'.$client['gambar']) ?>" class="img img-thumbnail">
+			<td><?= $no ?></td>
+			<td><?php if ($client['gambar'] === '') {
+    echo '-';
+} else { ?>
+				<img src="<?= base_url('assets/upload/client/thumbs/' . $client['gambar']) ?>" class="img img-thumbnail">
 			<?php } ?>
 			</td>
-			<td><?php echo $client['nama'] ?></td>
-			<td><?php echo $client['pimpinan'] ?></td>
-			<td><i class="fa fa-phone"></i> <?php echo $client['telepon'] ?>
-				<br><i class="fa fa-envelope"></i> <?php echo $client['email'] ?>
-				<br><i class="fa fa-globe"></i> <?php echo $client['website'] ?>
-				<br><i class="fa fa-map"></i> <?php echo $client['alamat'] ?>
+			<td><?= $client['nama'] ?></td>
+			<td><?= $client['pimpinan'] ?></td>
+			<td><i class="fa fa-phone"></i> <?= $client['telepon'] ?>
+				<br><i class="fa fa-envelope"></i> <?= $client['email'] ?>
+				<br><i class="fa fa-globe"></i> <?= $client['website'] ?>
+				<br><i class="fa fa-map"></i> <?= $client['alamat'] ?>
 			</td>
 			<td>
-				<a href="<?php echo base_url('admin/client/edit/'.$client['id_client']) ?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
-				<a href="<?php echo base_url('admin/client/delete/'.$client['id_client']) ?>" class="btn btn-dark btn-sm" onclick="confirmation(event)"><i class="fa fa-trash"></i></a>
+				<a href="<?= base_url('admin/client/edit/' . $client['id_client']) ?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
+				<a href="<?= base_url('admin/client/delete/' . $client['id_client']) ?>" class="btn btn-dark btn-sm" onclick="confirmation(event)"><i class="fa fa-trash"></i></a>
 			</td>
 		</tr>
 		<?php $no++; } ?>

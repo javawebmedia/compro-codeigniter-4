@@ -1,5 +1,5 @@
 <p>
-	<a href="<?php echo base_url('admin/download/tambah') ?>" class="btn btn-success">
+	<a href="<?= base_url('admin/download/tambah') ?>" class="btn btn-success">
 		<i class="fa fa-plus"></i> Tambah Baru
 	</a>
 </p>
@@ -17,26 +17,30 @@
 		</tr>
 	</thead>
 	<tbody>
-		<?php $no=1; foreach($download as $download) { ?>
+		<?php $no = 1;
+
+foreach ($download as $download) { ?>
 		<tr>
-			<td><?php echo $no ?></td>
+			<td><?= $no ?></td>
 			<td>
-				<?php if($download['gambar']=="") { echo '-'; }else{ ?>
-					<a href="<?php echo base_url('admin/download/unduh/'.$download['id_download']) ?>" class="btn btn-success btn-sm"><i class="fa fa-download"></i> Unduh</a>
+				<?php if ($download['gambar'] === '') {
+    echo '-';
+} else { ?>
+					<a href="<?= base_url('admin/download/unduh/' . $download['id_download']) ?>" class="btn btn-success btn-sm"><i class="fa fa-download"></i> Unduh</a>
 				<?php } ?>
 			</td>
-			<td><?php echo $download['judul_download'] ?>
+			<td><?= $download['judul_download'] ?>
 				<small>
-					<br><i class="fa fa-link"></i> <?php echo $download['website'] ?>
+					<br><i class="fa fa-link"></i> <?= $download['website'] ?>
 				</small>
 			</td>
-			<td><?php echo $download['nama_kategori_download'] ?></td>
-			<td><?php echo $download['jenis_download'] ?></td>
-			<td><?php echo $download['nama'] ?></td>
+			<td><?= $download['nama_kategori_download'] ?></td>
+			<td><?= $download['jenis_download'] ?></td>
+			<td><?= $download['nama'] ?></td>
 			<td>
-				
-				<a href="<?php echo base_url('admin/download/edit/'.$download['id_download']) ?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
-				<a href="<?php echo base_url('admin/download/delete/'.$download['id_download']) ?>" class="btn btn-dark btn-sm" onclick="confirmation(event)"><i class="fa fa-trash"></i></a>
+
+				<a href="<?= base_url('admin/download/edit/' . $download['id_download']) ?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
+				<a href="<?= base_url('admin/download/delete/' . $download['id_download']) ?>" class="btn btn-dark btn-sm" onclick="confirmation(event)"><i class="fa fa-trash"></i></a>
 			</td>
 		</tr>
 		<?php $no++; } ?>

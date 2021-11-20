@@ -1,22 +1,20 @@
-<?php 
+<?php
+
 namespace App\Models;
 
 use CodeIgniter\Model;
+
 class Kategori_galeri_model extends Model
 {
-    protected $table = 'kategori_galeri';
-    protected $primaryKey = 'id_kategori_galeri';
-
-    protected $returnType = 'array';
-    protected $useSoftDeletes = false;
-
-    protected $allowedFields = ['id_kategori_galeri','id_user','nama_kategori_galeri','slug_kategori_galeri','urutan','hits'];
-
-    protected $useTimestamps = false;
-    protected $createdField  = 'created_at';
-    protected $updatedField  = 'updated_at';
-    protected $deletedField  = 'deleted_at';
-
+    protected $table              = 'kategori_galeri';
+    protected $primaryKey         = 'id_kategori_galeri';
+    protected $returnType         = 'array';
+    protected $useSoftDeletes     = false;
+    protected $allowedFields      = ['id_kategori_galeri', 'id_user', 'nama_kategori_galeri', 'slug_kategori_galeri', 'urutan', 'hits'];
+    protected $useTimestamps      = false;
+    protected $createdField       = 'created_at';
+    protected $updatedField       = 'updated_at';
+    protected $deletedField       = 'deleted_at';
     protected $validationRules    = [];
     protected $validationMessages = [];
     protected $skipValidation     = false;
@@ -25,8 +23,9 @@ class Kategori_galeri_model extends Model
     public function listing()
     {
         $builder = $this->db->table('kategori_galeri');
-        $builder->orderBy('kategori_galeri.id_kategori_galeri','DESC');
+        $builder->orderBy('kategori_galeri.id_kategori_galeri', 'DESC');
         $query = $builder->get();
+
         return $query->getResultArray();
     }
 
@@ -35,8 +34,9 @@ class Kategori_galeri_model extends Model
     {
         $builder = $this->db->table('kategori_galeri');
         $builder->select('COUNT(*) AS total');
-        $builder->orderBy('kategori_galeri.id_kategori_galeri','DESC');
+        $builder->orderBy('kategori_galeri.id_kategori_galeri', 'DESC');
         $query = $builder->get();
+
         return $query->getRowArray();
     }
 
@@ -44,9 +44,10 @@ class Kategori_galeri_model extends Model
     public function detail($id_kategori_galeri)
     {
         $builder = $this->db->table('kategori_galeri');
-        $builder->where('id_kategori_galeri',$id_kategori_galeri);
-        $builder->orderBy('kategori_galeri.id_kategori_galeri','DESC');
+        $builder->where('id_kategori_galeri', $id_kategori_galeri);
+        $builder->orderBy('kategori_galeri.id_kategori_galeri', 'DESC');
         $query = $builder->get();
+
         return $query->getRowArray();
     }
 
@@ -54,10 +55,10 @@ class Kategori_galeri_model extends Model
     public function read($slug_kategori_galeri)
     {
         $builder = $this->db->table('kategori_galeri');
-        $builder->where('slug_kategori_galeri',$slug_kategori_galeri);
-        $builder->orderBy('kategori_galeri.id_kategori_galeri','DESC');
+        $builder->where('slug_kategori_galeri', $slug_kategori_galeri);
+        $builder->orderBy('kategori_galeri.id_kategori_galeri', 'DESC');
         $query = $builder->get();
+
         return $query->getRowArray();
     }
-
 }

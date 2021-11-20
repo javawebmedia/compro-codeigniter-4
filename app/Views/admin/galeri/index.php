@@ -1,5 +1,5 @@
 <p>
-	<a href="<?php echo base_url('admin/galeri/tambah') ?>" class="btn btn-success">
+	<a href="<?= base_url('admin/galeri/tambah') ?>" class="btn btn-success">
 		<i class="fa fa-plus"></i> Tambah Baru
 	</a>
 </p>
@@ -16,28 +16,32 @@
 		</tr>
 	</thead>
 	<tbody>
-		<?php $no=1; foreach($galeri as $galeri) { ?>
+		<?php $no = 1;
+
+foreach ($galeri as $galeri) { ?>
 		<tr>
-			<td><?php echo $no ?></td>
+			<td><?= $no ?></td>
 			<td>
-				<?php if($galeri['gambar']=="") { echo '-'; }else{ ?>
-					<img src="<?php echo base_url('assets/upload/image/thumbs/'.$galeri['gambar']) ?>" class="img img-thumbnail">
+				<?php if ($galeri['gambar'] === '') {
+    echo '-';
+} else { ?>
+					<img src="<?= base_url('assets/upload/image/thumbs/' . $galeri['gambar']) ?>" class="img img-thumbnail">
 				<?php } ?>
 			</td>
-			<td><?php echo $galeri['judul_galeri'] ?>
+			<td><?= $galeri['judul_galeri'] ?>
 				<small>
-					<br><i class="fa fa-link"></i> Link: <?php echo $galeri['website'] ?>
-					<br><i class="fa fa-tasks"></i> Teks Banner: <?php echo $galeri['status_text'] ?>
-					<br><i class="fa fa-image"></i> <?php echo base_url('assets/upload/image/'.$galeri['gambar']) ?>
+					<br><i class="fa fa-link"></i> Link: <?= $galeri['website'] ?>
+					<br><i class="fa fa-tasks"></i> Teks Banner: <?= $galeri['status_text'] ?>
+					<br><i class="fa fa-image"></i> <?= base_url('assets/upload/image/' . $galeri['gambar']) ?>
 				</small>
 			</td>
-			<td><small><i class="fa fa-tags"></i> <?php echo $galeri['nama_kategori_galeri'] ?>
-				<br><i class="fa fa-home"></i> <?php echo $galeri['jenis_galeri'] ?></small></td>
-			<td><?php echo $galeri['nama'] ?></td>
+			<td><small><i class="fa fa-tags"></i> <?= $galeri['nama_kategori_galeri'] ?>
+				<br><i class="fa fa-home"></i> <?= $galeri['jenis_galeri'] ?></small></td>
+			<td><?= $galeri['nama'] ?></td>
 			<td>
-				
-				<a href="<?php echo base_url('admin/galeri/edit/'.$galeri['id_galeri']) ?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
-				<a href="<?php echo base_url('admin/galeri/delete/'.$galeri['id_galeri']) ?>" class="btn btn-dark btn-sm" onclick="confirmation(event)"><i class="fa fa-trash"></i></a>
+
+				<a href="<?= base_url('admin/galeri/edit/' . $galeri['id_galeri']) ?>" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
+				<a href="<?= base_url('admin/galeri/delete/' . $galeri['id_galeri']) ?>" class="btn btn-dark btn-sm" onclick="confirmation(event)"><i class="fa fa-trash"></i></a>
 			</td>
 		</tr>
 		<?php $no++; } ?>

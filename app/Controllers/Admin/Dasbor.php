@@ -1,17 +1,15 @@
-<?php 
-namespace App\Controllers\Admin;
+<?php
 
-use CodeIgniter\Controller;
-use App\Models\Dasbor_model;
+namespace App\Controllers\Admin;
 
 class Dasbor extends BaseController
 {
-	public function index()
-	{
-		checklogin();		
-		$data = [	'title'			=> 'Dashboard Aplikasi',
-					'content'		=> 'admin/dasbor/index'
-				];
-		echo view('admin/layout/wrapper',$data);
-	}
+    public function index()
+    {
+        checklogin();
+        $data = ['title' => 'Dashboard Aplikasi',
+            'content'    => 'admin/dasbor/index',
+        ];
+        echo view('admin/layout/wrapper', $data);
+    }
 }

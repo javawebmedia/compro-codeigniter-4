@@ -1,8 +1,8 @@
-<?php 
-use App\Models\Konfigurasi_model;
-$session = \Config\Services::session();
-$konfigurasi  = new Konfigurasi_model;
-$site         = $konfigurasi->listing();
+<?php use App\Models\Konfigurasi_model;
+
+$session     = \Config\Services::session();
+$konfigurasi = new Konfigurasi_model();
+$site        = $konfigurasi->listing();
 ?>
 <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -12,17 +12,17 @@ $site         = $konfigurasi->listing();
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="<?php echo base_url('admin/dasbor') ?>" class="nav-link">Dashboard</a>
+        <a href="<?= base_url('admin/dasbor') ?>" class="nav-link">Dashboard</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="<?php echo base_url() ?>" class="nav-link" target="_blank">Homepage</a>
+        <a href="<?= base_url() ?>" class="nav-link" target="_blank">Homepage</a>
       </li>
-      
+
     </ul>
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-    
+
       <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>
@@ -34,11 +34,11 @@ $site         = $konfigurasi->listing();
         </a>
       </li>
       <li class="nav-item">
-        <a href="<?php echo base_url('admin/akun') ?>" class="nav-link">
-          <i class="fa fa-user"></i> <?php echo $session->get('nama') ?> (<?php echo $session->get('akses_level') ?>)</a>
+        <a href="<?= base_url('admin/akun') ?>" class="nav-link">
+          <i class="fa fa-user"></i> <?= $session->get('nama') ?> (<?= $session->get('akses_level') ?>)</a>
       </li>
       <li class="nav-item">
-        <a href="<?php echo base_url('login/logout') ?>" class="nav-link text-danger">
+        <a href="<?= base_url('login/logout') ?>" class="nav-link text-danger">
           <i class="fa fa-sign-out-alt"></i> Logout</a>
       </li>
     </ul>

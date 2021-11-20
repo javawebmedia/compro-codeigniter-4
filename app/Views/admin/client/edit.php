@@ -1,28 +1,27 @@
-<form action="<?php echo base_url('admin/client/edit/'.$client['id_client']) ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
-<?php 
-echo csrf_field(); 
+<form action="<?= base_url('admin/client/edit/' . $client['id_client']) ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+<?= csrf_field();
 ?>
 <div class="form-group row">
 	<label class="col-3">Nama Client</label>
 	<div class="col-9">
-		<input type="text" name="nama" class="form-control" placeholder="Nama client" value="<?php echo $client['nama'] ?>" required>
+		<input type="text" name="nama" class="form-control" placeholder="Nama client" value="<?= $client['nama'] ?>" required>
 	</div>
 </div>
 
 <div class="form-group row">
 	<label class="col-3">Nama Pimpinan/Panggilan</label>
 	<div class="col-9">
-		<input type="text" name="pimpinan" class="form-control" placeholder="Nama Pimpinan/Panggilan" value="<?php echo $client['pimpinan'] ?>">
+		<input type="text" name="pimpinan" class="form-control" placeholder="Nama Pimpinan/Panggilan" value="<?= $client['pimpinan'] ?>">
 	</div>
 </div>
 
 <div class="form-group row">
 	<label class="col-3">Tempat, tanggal lahir</label>
 	<div class="col-3">
-		<input type="text" name="tempat_lahir" class="form-control" placeholder="Tempat lahir" value="<?php echo $client['tempat_lahir'] ?>">
+		<input type="text" name="tempat_lahir" class="form-control" placeholder="Tempat lahir" value="<?= $client['tempat_lahir'] ?>">
 	</div>
 	<div class="col-3">
-		<input type="text" name="tanggal_lahir" class="form-control" placeholder="dd-mm-yyyy" value="<?php echo tanggal_id($client['tanggal_lahir']) ?>">
+		<input type="text" name="tanggal_lahir" class="form-control" placeholder="dd-mm-yyyy" value="<?= tanggal_id($client['tanggal_lahir']) ?>">
 	</div>
 </div>
 
@@ -31,15 +30,21 @@ echo csrf_field();
 	<div class="col-3">
 		<select name="jenis_client" class="form-control">
 			<option value="Perorangan">Perorangan</option>
-			<option value="Perusahaan" <?php if($client['jenis_client']=="Perusahaan") { echo 'selected'; } ?>>Perusahaan</option>
-			<option value="Organisasi" <?php if($client['jenis_client']=="Organisasi") { echo 'selected'; } ?>>Organisasi</option>
+			<option value="Perusahaan" <?php if ($client['jenis_client'] === 'Perusahaan') {
+    echo 'selected';
+} ?>>Perusahaan</option>
+			<option value="Organisasi" <?php if ($client['jenis_client'] === 'Organisasi') {
+    echo 'selected';
+} ?>>Organisasi</option>
 		</select>
 		<small class="text-secondary">Jenis Client</small>
 	</div>
 	<div class="col-3">
 		<select name="status_client" class="form-control">
 			<option value="Publish">Publish</option>
-			<option value="Draft" <?php if($client['status_client']=="Draft") { echo 'selected'; } ?>>Draft</option>
+			<option value="Draft" <?php if ($client['status_client'] === 'Draft') {
+    echo 'selected';
+} ?>>Draft</option>
 		</select>
 		<small class="text-secondary">Status Client</small>
 	</div>
@@ -48,34 +53,34 @@ echo csrf_field();
 <div class="form-group row">
 	<label class="col-3">Email dan Telepon</label>
 	<div class="col-5">
-		<input type="text" name="email" class="form-control" placeholder="Email client" value="<?php echo $client['email'] ?>">
+		<input type="text" name="email" class="form-control" placeholder="Email client" value="<?= $client['email'] ?>">
 	</div>
 	<div class="col-4">
-		<input type="text" name="telepon" class="form-control" placeholder="Telepon" value="<?php echo $client['telepon'] ?>">
+		<input type="text" name="telepon" class="form-control" placeholder="Telepon" value="<?= $client['telepon'] ?>">
 	</div>
 </div>
 
 <div class="form-group row">
 	<label class="col-3">Website dan logo</label>
 	<div class="col-4">
-		<input type="text" name="website" class="form-control" placeholder="Website" value="<?php echo $client['website'] ?>">
+		<input type="text" name="website" class="form-control" placeholder="Website" value="<?= $client['website'] ?>">
 	</div>
 	<div class="col-5">
-		<input type="file" name="gambar" class="form-control" placeholder="gambar" value="<?php echo $client['gambar'] ?>">
+		<input type="file" name="gambar" class="form-control" placeholder="gambar" value="<?= $client['gambar'] ?>">
 	</div>
 </div>
 
 <div class="form-group row">
 	<label class="col-3">Alamat</label>
 	<div class="col-9">
-		<textarea name="alamat" placeholder="Alamat" class="form-control"><?php echo $client['alamat'] ?></textarea>
+		<textarea name="alamat" placeholder="Alamat" class="form-control"><?= $client['alamat'] ?></textarea>
 	</div>
 </div>
 
 <div class="form-group row">
 	<label class="col-3">Testimoni</label>
 	<div class="col-9">
-		<textarea name="isi_testimoni" placeholder="Testimoni" class="form-control"><?php echo $client['isi_testimoni'] ?></textarea>
+		<textarea name="isi_testimoni" placeholder="Testimoni" class="form-control"><?= $client['isi_testimoni'] ?></textarea>
 	</div>
 </div>
 
@@ -87,4 +92,4 @@ echo csrf_field();
 </div>
 
 
-<?php echo form_close(); ?>
+<?= form_close(); ?>

@@ -1,5 +1,5 @@
 <?php
-if($content)
-{
-	echo view($content);
+
+if ($content) {
+    echo view($content);
 }
