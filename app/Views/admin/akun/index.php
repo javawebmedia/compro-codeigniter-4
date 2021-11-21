@@ -7,9 +7,7 @@
 } ?>" class="img img-thumbnail">
 	</div>
 	<div class="col-9">
-		<form action="<?= base_url('admin/akun') ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
-			<?= csrf_field();
-            ?>
+		<?= form_open_multipart('admin/akun') ?>
 			<input type="hidden" name="id_user" value="<?= $user['id_user'] ?>">
 			<div class="form-group row">
 				<label class="col-3">Nama Pengguna</label>

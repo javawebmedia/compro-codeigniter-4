@@ -3,9 +3,8 @@
 		<i class="fa fa-plus"></i> Tambah Baru
 	</button>
 </p>
-<form action="<?= base_url('admin/client') ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
-<?= csrf_field();
-?>
+
+<?= form_open_multipart('admin/client') ?>
 
 <div class="modal fade" id="modal-default">
 	<div class="modal-dialog modal-lg">

@@ -1,6 +1,4 @@
-<form action="<?= base_url('admin/staff/edit/' . $staff['id_staff']) ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
-<?= csrf_field();
-?>
+<?= form_open_multipart('admin/staff/edit/' . $staff['id_staff']) ?>
 <div class="form-group row">
 	<label class="col-3">Nama Staff</label>
 	<div class="col-9">

@@ -1,6 +1,4 @@
-<form action="<?= base_url('admin/berita/tambah') ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
-<?= csrf_field();
-?>
+<?= form_open_multipart('admin/berita/tambah') ?>
 
 <div class="form-group row">
 	<label class="col-md-2">Judul Berita</label>

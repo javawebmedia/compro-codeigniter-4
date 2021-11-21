@@ -1,6 +1,4 @@
-<form action="<?= base_url('admin/galeri/edit/' . $galeri['id_galeri']) ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
-<?= csrf_field();
-?>
+<?= form_open_multipart('admin/galeri/edit/' . $galeri['id_galeri']) ?>
 
 <div class="form-group row">
 	<label class="col-md-2">Judul Galeri</label>

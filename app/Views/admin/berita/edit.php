@@ -1,6 +1,4 @@
-<form action="<?= base_url('admin/berita/edit/' . $berita['id_berita']) ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
-<?= csrf_field();
-?>
+<?= form_open_multipart('admin/berita/edit/' . $berita['id_berita']) ?>
 
 <div class="form-group row">
 	<label class="col-md-2">Judul Berita</label>

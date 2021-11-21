@@ -1,6 +1,4 @@
-<form action="<?= base_url('admin/download/edit/' . $download['id_download']) ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
-<?= csrf_field();
-?>
+<?= form_open_multipart('admin/download/edit/' . $download['id_download']) ?>
 
 <div class="form-group row">
 	<label class="col-md-2">Judul Download</label>

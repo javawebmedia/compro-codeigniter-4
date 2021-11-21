@@ -1,6 +1,4 @@
-<form action="<?= base_url('admin/konfigurasi/logo') ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
-<?= csrf_field();
-?>
+<?= form_open_multipart('admin/konfigurasi/logo') ?>
 
 <input type="hidden" name="id_konfigurasi" value="<?= $konfigurasi['id_konfigurasi'] ?>">
 <div class="form-group row">

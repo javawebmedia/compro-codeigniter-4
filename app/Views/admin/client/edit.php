@@ -1,6 +1,5 @@
-<form action="<?= base_url('admin/client/edit/' . $client['id_client']) ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
-<?= csrf_field();
-?>
+<?= form_open_multipart('admin/client/edit/' . $client['id_client']) ?>
+
 <div class="form-group row">
 	<label class="col-3">Nama Client</label>
 	<div class="col-9">

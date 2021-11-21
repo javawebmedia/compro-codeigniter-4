@@ -1,7 +1,4 @@
-
-<form action="<?= base_url('admin/prestasi/tambah') ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
-	<?= csrf_field();
-    ?>
+<?= form_open_multipart('admin/prestasi/tambah') ?>
 
 	<div class="form-group row">
 		<label class="col-3">Upload Foto</label>

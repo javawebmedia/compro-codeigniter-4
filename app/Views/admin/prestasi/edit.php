@@ -1,7 +1,4 @@
-
-<form action="<?= base_url('admin/prestasi/edit/' . $prestasi['id_prestasi']) ?>" method="post" accept-charset="utf-8" enctype="multipart/form-data">
-	<?= csrf_field();
-    ?>
+<?= form_open_multipart('admin/prestasi/edit/' . $prestasi['id_prestasi']) ?>
 
 	<div class="form-group row">
 		<label class="col-3">Upload Foto</label>
