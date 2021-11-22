@@ -7,8 +7,7 @@
 } ?>" class="img img-thumbnail">
 	</div>
 	<div class="col-9">
-		<?= form_open_multipart('admin/akun') ?>
-			<input type="hidden" name="id_user" value="<?= $user['id_user'] ?>">
+		<?= form_open_multipart('admin/akun', [], ['id_user' => $user['id_user']]) ?>
 			<div class="form-group row">
 				<label class="col-3">Nama Pengguna</label>
 				<div class="col-9">

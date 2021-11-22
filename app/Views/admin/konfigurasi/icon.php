@@ -1,6 +1,5 @@
-<?= form_open_multipart('admin/konfigurasi/icon') ?>
+<?= form_open_multipart('admin/konfigurasi/icon', [], ['id_konfigurasi' => $konfigurasi['id_konfigurasi']]) ?>
 
-<input type="hidden" name="id_konfigurasi" value="<?= $konfigurasi['id_konfigurasi'] ?>">
 <div class="form-group row">
 	<label class="col-3">Upload Icon Baru</label>
 	<div class="col-6">
