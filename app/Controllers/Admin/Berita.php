@@ -2,6 +2,7 @@
 
 namespace App\Controllers\Admin;
 
+use App\Controllers\BaseController;
 use App\Models\Berita_model;
 use App\Models\Kategori_model;
 use App\Models\User_model;

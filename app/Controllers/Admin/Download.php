@@ -2,6 +2,7 @@
 
 namespace App\Controllers\Admin;
 
+use App\Controllers\BaseController;
 use App\Models\Download_model;
 use App\Models\Kategori_download_model;
 

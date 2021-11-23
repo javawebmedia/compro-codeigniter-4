@@ -2,6 +2,7 @@
 
 namespace App\Controllers\Admin;
 
+use App\Controllers\BaseController;
 use App\Models\Kategori_staff_model;
 
 class Kategori_staff extends BaseController

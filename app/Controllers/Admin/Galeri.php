@@ -2,6 +2,7 @@
 
 namespace App\Controllers\Admin;
 
+use App\Controllers\BaseController;
 use App\Models\Galeri_model;
 use App\Models\Kategori_galeri_model;
 
