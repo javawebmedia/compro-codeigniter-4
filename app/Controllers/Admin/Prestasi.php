@@ -48,7 +48,7 @@ class Prestasi extends BaseController
                     ->fit(100, 100, 'center')
                     ->save(WRITEPATH . '../assets/upload/prestasi/thumbs/' . $namabaru);
                 // masuk database
-                $slug_prestasi = strtolower(url_title($this->request->getVar('nama_prestasi') . '-' . $this->request->getVar('tingkat') . '-' . $this->request->getVar('tahun')));
+                $slug_prestasi = url_title($this->request->getVar('nama_prestasi') . '-' . $this->request->getVar('tingkat') . '-' . $this->request->getVar('tahun'), '-', true);
 
                 $data = ['id_user'       => $this->session->get('id_user'),
                     'prestasi_oleh'      => $this->request->getPost('prestasi_oleh'),
@@ -72,7 +72,7 @@ class Prestasi extends BaseController
                 return redirect()->to(base_url('admin/prestasi'));
             }
             // masuk database
-            $slug_prestasi = strtolower(url_title($this->request->getVar('nama_prestasi') . '-' . $this->request->getVar('tingkat') . '-' . $this->request->getVar('tahun')));
+            $slug_prestasi = url_title($this->request->getVar('nama_prestasi') . '-' . $this->request->getVar('tingkat') . '-' . $this->request->getVar('tahun'), '-', true);
             $data          = ['id_user' => $this->session->get('id_user'),
                 'prestasi_oleh'         => $this->request->getPost('prestasi_oleh'),
                 'slug_prestasi'         => $slug_prestasi,
@@ -128,7 +128,7 @@ class Prestasi extends BaseController
                     ->fit(100, 100, 'center')
                     ->save(WRITEPATH . '../assets/upload/prestasi/thumbs/' . $namabaru);
                 // masuk database
-                $slug_prestasi = strtolower(url_title($this->request->getVar('nama_prestasi') . '-' . $this->request->getVar('tingkat') . '-' . $this->request->getVar('tahun')));
+                $slug_prestasi = url_title($this->request->getVar('nama_prestasi') . '-' . $this->request->getVar('tingkat') . '-' . $this->request->getVar('tahun'), '-', true);
                 $data          = ['id_prestasi' => $id_prestasi,
                     'id_user'                   => $this->session->get('id_user'),
                     'prestasi_oleh'             => $this->request->getPost('prestasi_oleh'),
@@ -151,7 +151,7 @@ class Prestasi extends BaseController
                 return redirect()->to(base_url('admin/prestasi'));
             }
             // masuk database
-            $slug_prestasi = strtolower(url_title($this->request->getVar('nama_prestasi') . '-' . $this->request->getVar('tingkat') . '-' . $this->request->getVar('tahun')));
+            $slug_prestasi = url_title($this->request->getVar('nama_prestasi') . '-' . $this->request->getVar('tingkat') . '-' . $this->request->getVar('tahun'), '-', true);
             $data          = ['id_prestasi' => $id_prestasi,
                 'id_user'                   => $this->session->get('id_user'),
                 'prestasi_oleh'             => $this->request->getPost('prestasi_oleh'),
